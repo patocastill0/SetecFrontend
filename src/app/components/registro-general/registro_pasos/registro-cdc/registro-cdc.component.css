@@ -1,0 +1,26 @@
+
+.table {
+	width: 90%;
+	height: 50px;
+  position: relative;
+  border-collapse: collapse;
+}
+
+.table td:first-child {
+  width: 100px;
+}
+
+thead{
+  position: sticky;
+  top: 0;
+}
+.container {
+  height: 350px;
+  overflow-y: scroll;
+ }
+
+ .busqueda{
+  display: inline;
+  width: 40%;
+  margin-bottom: 1rem;
+}

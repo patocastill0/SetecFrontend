@@ -1,0 +1,218 @@
+<div class = "container">
+
+  <div class="row">
+  <div class="col-md-3">
+    <div class="form-floating mt-2">
+      <input name="folio" [(ngModel)]="trabajador.folio" type="text" class="form-control" id="floatingInputFolio" placeholder="name@example.com">
+      <label for="floatingInputFolio">No. Folio</label>
+    </div>
+  </div>
+  <div class="col-md-3" >
+    <select name="sector" [(ngModel)]="trabajador.sector" class="form-select mt-2" aria-label="Default select example">
+      <option [ngValue]="undefined">[ Selecionar Sector ]</option>
+      <option *ngFor="let sector of sectorlista" [ngValue]="sector.idSector">{{sector.nombreSector}}</option>
+    </select>
+  </div>
+  </div>
+
+  <div class= "row">
+
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="nombre" [(ngModel)]="trabajador.nombre" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com">
+        <label for="floatingInputNombre">Nombre(s)</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="apPaterno" [(ngModel)]="trabajador.apPaterno" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com">
+        <label for="floatingInputAp">Apellido Paterno</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="apMaterno" [(ngModel)]="trabajador.apMaterno"  type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com">
+        <label for="floatingInputAm">Apellido Materno</label>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <select name="genero" [(ngModel)]="trabajador.genero" class="form-select mt-4" aria-label="Default select example" >
+        <option [ngValue]="undefined">Selecionar Genero</option>
+        <option ngValue="M">M</option>
+        <option ngValue="F">F</option>
+      </select>
+    </div>
+
+  </div>
+  <div class = "row">
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input  name="fechaNacimiento" [(ngModel)]="trabajador.fechaNacimiento" type="date" class="form-control" id="floatingInputFechana" placeholder="name@example.com">
+        <label for="floatingInputFechana">Fecha Nacimiento</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="tipoSanguineo" [(ngModel)]="trabajador.tipoSanguineo" type="text" class="form-control" id="floatingInputSanguineo" placeholder="name@example.com">
+        <label for="floatingInputSanguineo">Tipo Sanguineo</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <select name="estadoCivil" [(ngModel)]="trabajador.estadoCivil" class="form-select mt-4 anchura" aria-label="Default select example">
+        <option [ngValue]="undefined"> Estado Civil </option>
+        <option ngValue="1">Soltera</option>
+        <option ngValue="2">Casada</option>
+        <option ngValue="3">Divorciada</option>
+        <option ngValue="4">Viuda</option>
+      </select>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input  name="claveElector" [(ngModel)]="trabajador.claveElector" type="text" class="form-control" id="floatingInputElector" placeholder="name@example.com">
+        <label for="floatingInputElector">Clave Elector</label>
+      </div>
+    </div>
+
+  </div>
+
+  <div class = "row">
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="seccion" [(ngModel)]="trabajador.seccion" type="text" class="form-control" id="floatingInputSeccion" placeholder="name@example.com">
+        <label for="floatingInputSeccion">Seccion</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="curp" [(ngModel)]="trabajador.curp" type="text" class="form-control" id="floatingInputCurp" placeholder="name@example.com">
+        <label for="floatingInputCurp">CURP</label>
+      </div>
+    </div>
+  </div>
+
+  <div class = "row">
+    <div class="col-md-3">
+      <select name="cargo" [(ngModel)]="trabajador.cargo" class="form-select mt-4" aria-label="Default select example">
+        <option [ngValue]="undefined">[ Selecionar Cargo ]</option>
+        <option *ngFor="let cargo of cargolista" [ngValue]="cargo.idcargo">{{cargo.nombreCargo}}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <select name="region" [(ngModel)]="trabajador.region" class="form-select mt-4" aria-label="Default select example">
+        <option [ngValue]="undefined">[ Sellecionar Region ]</option>
+        <option *ngFor="let region of regionlista" [ngValue]="region.claveRegion">{{region.nombreRegion}}</option>
+      </select>
+    </div>
+    <div class="col-md-3" >
+      <select name="cdc" [(ngModel)]="trabajador.cdc" class="form-select mt-4" aria-label="Default select example">
+        <option [ngValue]="undefined">[ Seleccionar CDC ]</option>
+        <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.idCdcs">{{cdcs.nombreCdc}}</option>
+      </select>
+    </div>
+  </div>
+
+  <hr style="color: rgb(111, 204, 247); margin-top: 30px;" />
+
+  <p>
+    <button class="btn btn-primary tamanoletra" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Datos domicilio
+    </button>
+  </p>
+  <div class="collapse" id="collapseExample">
+  <div class = "row">
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="calle" [(ngModel)]="trabajador.calle" type="text" class="form-control" id="floatingInputCalle" placeholder="name@example.com">
+        <label for="floatingInputCalle">Calle</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="numero" [(ngModel)]="trabajador.numero" type="text" class="form-control" id="floatingInputNumero" placeholder="name@example.com">
+        <label for="floatingInputNumero">Numero</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="colonia" [(ngModel)]="trabajador.colonia" type="text" class="form-control" id="floatingInputCol" placeholder="name@example.com">
+        <label for="floatingInputCol">Colnia</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="cp" [(ngModel)]="trabajador.cp" type="text" class="form-control" id="floatingInputCP" placeholder="name@example.com">
+        <label for="floatingInputCP">Codigo Postal</label>
+      </div>
+    </div>
+  </div>
+  <div class = "row">
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="localidad" [(ngModel)]="trabajador.localidad" type="text" class="form-control" id="floatingInputLocalidad" placeholder="name@example.com">
+        <label for="floatingInputLocalidad">Localidad</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="municipio" [(ngModel)]="trabajador.municipio" type="text" class="form-control" id="floatingInputMunicipio" placeholder="name@example.com">
+        <label for="floatingInputMunicipio">Municipio</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input  name="celular" [(ngModel)]="trabajador.celular" type="text" class="form-control" id="floatingInputCelular" placeholder="name@example.com">
+        <label for="floatingInputCelular">Celular</label>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input  name="telCasa" [(ngModel)]="trabajador.telCasa" type="text" class="form-control" id="floatingInputTelCasa" placeholder="name@example.com">
+        <label for="floatingInputTelCasa">Telefono Casa</label>
+      </div>
+    </div>
+
+  <div class = "row">
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="correoElectronico" [(ngModel)]="trabajador.correoElectronico" type="email" class="form-control" id="floatingInputCorreElectro" placeholder="name@example.com">
+        <label for="floatingInputCorreElectro">Correo Electronico</label>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input  name="facebook" [(ngModel)]="trabajador.facebook" type="text" class="form-control" id="floatingInputFacebook" placeholder="name@example.com">
+        <label for="floatingInputFacebook">Facebook</label>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="twitter" [(ngModel)]="trabajador.twitter" type="text" class="form-control" id="floatingInputTwitter" placeholder="name@example.com">
+        <label for="floatingInputTwitter">Twitter</label>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="form-floating mt-4">
+        <input name="instagram" [(ngModel)]="trabajador.instagram" type="text" class="form-control" id="floatingInputInstagram" placeholder="name@example.com">
+        <label for="floatingInputInstagram">Instagram</label>
+      </div>
+    </div>
+
+  </div>
+  </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2">
+      <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success">GUARDAR</button>
+    </div>
+    <div class="col-auto">
+      <button [routerLink]="['/clua',trabajador.curp]" type="button" class="btn btn-success">GENERAR CLUA</button>
+    </div>
+  </div>
+</div>
+
+

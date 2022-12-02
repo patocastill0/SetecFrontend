@@ -1,0 +1,122 @@
+<div class="card mt-4">
+  <div class="card-header text-center">
+    AREA EXCLUSIVA PARA LA SECRETARIA TECNICA
+  </div>
+  <div class="card-body">
+    <h5 class="card-title ">NOTA: La cedula debe estar requisitada completamente, asimismo la documentacion debe ser entregada en el momento del registro.</h5>
+    <div class = "row g-1" *ngIf="trabajador!=undefined">
+      <div class = "col-md-1 mt-4">
+        <label for="InputClua" class="form-label">CLUA</label>
+      </div>
+
+      <div class = "col-md-2 mt-4">
+        <input (keyup)="onKeyUp($event)" name="anioafiliacion" [(ngModel)]="clua.anioafiliacion"  type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
+      </div>
+      <div class = "col-md-2 mt-4">
+        <input name ="sector" [(ngModel)]="trabajador.sector" type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
+      </div>
+      <div class = "col-md-2 mt-4">
+        <input name ="cargo" [(ngModel)]="trabajador.cargo" type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
+      </div>
+      <div class = "col-md-2 mt-4">
+        <input name="municipio" [(ngModel)]="trabajador.municipio"  type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
+      </div>
+      <div class = "col-md-2 mt-4">
+        <input name="region" [(ngModel)]="trabajador.region"  type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
+      </div>
+      <div class="form">
+      <div class = "col-md-4 mt-4">
+        <input name="cluacompleto" [(ngModel)]="cluacompleto"  type="text" class="form-control text-center" id="cluacompleto" placeholder="CLUA" data-bs-placement="bottom" title="Tooltip on top">
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-center">
+    <div class="row">
+      <div class="col-auto">
+        <select name="estado" [(ngModel)]="clua.estado" class="form-select mt-4 " aria-label="Default select example">
+          <option selected > Estado </option>
+          <option ngValue="Vigente">Vigente</option>
+          <option ngValue="No Vigente">No Vigente</option>
+          <option ngValue="No Aplica">No Aplica</option>
+        </select>
+      </div>
+
+      <div class="col-auto">
+        <select name="vigencia" [(ngModel)]="clua.vigencia" class="form-select mt-4" aria-label="Default select example">
+          <option selected >Vigencia</option>
+          <option ngValue=1>Un año</option>
+          <option ngValue=2>Dos años</option>
+          <option ngValue=3>Tres años</option>
+          <option ngValue=4>Cuatro años</option>
+          <option ngValue=5>Cinco años</option>
+          <option ngValue=0>No Aplica</option>
+        </select>
+      </div>
+
+      <div class="col-auto">
+        <div class="form-label mt-4">
+          <input name="fechaCreacion" [(ngModel)]="clua.fechaCreacion" type="date" class="form-control" id="floatingInputFecha">
+        </div>
+      </div>
+
+      <div class="col mt-4">
+        <div class="d-flex justify-content-end">
+        <button (click)="crearClua()" type="button" class="btn btn-success ">GUARDAR</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<table class="table table-striped table-hover table-bordered mt-3">
+  <thead>
+
+    <tr>
+      <th >Numero de Afiliacion</th>
+      <th >Año de Afiliacion</th>
+      <th >Sector</th>
+      <th >Cargo</th>
+      <th >Clave Municipio</th>
+      <th >Region</th>
+      <th>Fecha Registro</th>
+      <th>Estatus</th>
+      <th>Vigencia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trabajadorcluas of trabajadorcluas">
+      <td>
+        {{trabajadorcluas.numAfiliacion}}
+      </td>
+      <td>
+        {{trabajadorcluas.numanioafiliacion}}
+      </td>
+      <td>
+        {{trabajadorcluas.sector}}
+      </td>
+      <td>
+        {{trabajadorcluas.cargo}}
+      </td>
+      <td>
+        {{trabajadorcluas.claveMunicipio}}
+      </td>
+      <td>
+        {{trabajadorcluas.region}}
+      </td>
+      <td>
+        {{trabajadorcluas.fecharegistro}}
+      </td>
+      <td>
+        {{trabajadorcluas.estado}}
+      </td>
+      <td>
+        {{trabajadorcluas.vigencia}}
+      </td>
+
+
+    </tr>
+  </tbody>
+</table>
+

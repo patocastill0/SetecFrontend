@@ -1,0 +1,176 @@
+
+<div class="col text-center mt-4">
+  <div class="row">
+    <div class="col-sm">
+        <div class="form-group col-sm flex-column d-flex">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Buscar Empleado</mat-label>
+            <input type="text"
+                   placeholder="Ingrese nombre o curp"
+                   aria-label="Buscar"
+                   matInput
+                   [formControl]="autoTrabajador"
+                   [matAutocomplete]="auto1">
+                   <mat-icon matSuffix>search</mat-icon>
+                <mat-autocomplete #auto1="matAutocomplete" [displayWith]="mostrarDatosTrabajador" (optionSelected)="seleccionarTrabajador($event)">
+                <mat-option  *ngFor="let trabajador of trabajadores | async" [value]="trabajador">
+                  {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}
+                </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+
+  <table class="table table-bordered table-striped mt-4" style="margin: 0 auto;" >
+    <thead class="table-dark">
+      <tr>
+        <th >Nombre</th>
+        <th >Nombre Curso</th>
+        <th>Hora</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trabajadorescu of arreglocursos" >
+
+          <td> {{trabajadorescu.nombreTrabajador}} </td>
+          <td> {{trabajadorescu.nombrecurso}} </td>
+          <td> {{trabajadorescu.horaInicio}}-{{trabajadorescu.horaFin}}</td>
+        </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+<div class="card mt-3">
+    <div class="card-header text-center">PARA USO EXCLUSIVO DE LOS CDC'S</div>
+  <div class="card-body">
+    <h5 class="card-title text-center"> ASIGNACION DE CURSO(s)</h5>
+
+    <div class="row g-3 align-items-center">
+      <div class="col-md-auto mt-4">
+        <label for="selectCDC" class="col-form-label">CDC</label>
+      </div>
+      <div class="col-md-2">
+        <select name="cdc"  [(ngModel)]="trabacursos.cdc" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined" > Selecionar CDC </option>
+          <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.idCdcs">{{cdcs.nombreCdc}}</option>
+        </select>
+      </div>
+
+      <div class="col-md-auto mt-4">
+        <label for="selectPeriodo">PERIODO</label>
+      </div>
+      <div class="col-md-auto">
+        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined" > Selecionar Periodo </option>
+          <option ngValue="1">Enero-Marzo</option>
+          <option ngValue="2">Abril-Junio</option>
+          <option ngValue="3">Verano</option>
+          <option ngValue="4">Septiembre-Diciembre</option>
+        </select>
+      </div>
+
+      <div  class="col-md-auto mt-4">
+        <label >AÑO</label>
+      </div>
+      <div class="col-md-1">
+        <div class="form-label mt-4">
+        <input name="anio" [(ngModel)]="trabacursos.anio" type="text"  class="form-control"  id="dateanio" placeholder="AÑO">
+        </div>
+      </div>
+
+      <div class="col-md-auto mt-4">
+        <label >CODIGO CURSO</label>
+      </div>
+      <div class="col-md-2">
+        <div class=" mt-4">
+        <input name="codigocurso" [(ngModel)]="trabacursos.codigocurso" type="text"  class="form-control"  id="codigocurso" placeholder="CODIGO CURSO">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <h5 class="card-title mt-3"> CURSO(s)</h5>
+    </div>
+    <div class="row">
+      <div class="col-md-auto mt-4">
+        <label for="selectCDC" class="col-form-label">Curso</label>
+      </div>
+      <div class="col-md-auto">
+        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined"> Selecionar Curso </option>
+          <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+
+
+        </select>
+      </div>
+
+      <div class="col-md-auto mt-4">
+        <label for="selectanio">HORA INICIO</label>
+      </div>
+      <div class="col-md-auto">
+        <select name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined" > [Selecionar HORA] </option>
+          <option ngValue="07">07:00 am</option>
+          <option ngValue="08">08:00 am</option>
+          <option ngValue="09">09:00 am</option>
+          <option ngValue="10">10:00 am</option>
+          <option ngValue="11">11:00 am</option>
+          <option ngValue="12">12:00 pm</option>
+          <option ngValue="13">13:00 pm</option>
+          <option ngValue="14">14:00 mp</option>
+          <option ngValue="15">15:00 mp</option>
+          <option ngValue="16">16:00 mp</option>
+          <option ngValue="17">17:00 mp</option>
+          <option ngValue="18">18:00 mp</option>
+          <option ngValue="19">19:00 mp</option>
+
+        </select>
+      </div>
+
+      <div class="col-md-auto mt-4">
+        <label for="selectanio">HORA FIN</label>
+      </div>
+      <div class="col-md-auto">
+        <select name="horafin" [(ngModel)]="trabacursos.horaFin" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined"> [Selecionar HORA] </option>
+          <option ngValue="08">08:00 am</option>
+          <option ngValue="09">09:00 am</option>
+          <option ngValue="10">10:00 am</option>
+          <option ngValue="11">11:00 am</option>
+          <option ngValue="12">12:00 pm</option>
+          <option ngValue="13">13:00 pm</option>
+          <option ngValue="14">14:00 pm</option>
+          <option ngValue="15">15:00 mp</option>
+          <option ngValue="16">16:00 mp</option>
+          <option ngValue="17">17:00 mp</option>
+          <option ngValue="18">18:00 mp</option>
+          <option ngValue="19">19:00 mp</option>
+          <option ngValue="20">20:00 mp</option>
+
+        </select>
+      </div>
+
+    </div>
+  </div>
+  <div class="card-footer text-center">
+
+    <div class="col mt-4">
+      <div class="d-flex justify-content-end">
+      <button (click)="creartrabajadorCurso()" type="button" class="btn btn-success ">GUARDAR</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+

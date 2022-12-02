@@ -1,0 +1,46 @@
+<table class="table table-striped table-hover table-bordered">
+  <thead>
+    <tr>
+      <th >Nombre</th>
+      <th >Apellido Paterno</th>
+      <th >Apellido Paterno</th>
+      <th >Fecha Nacimiento</th>
+      <th >Tipo Sanguineo</th>
+      <th >Estado Civil</th>
+      <th >Clave Elector</th>
+      <th >Seccion</th>
+      <th >CURP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let trabajador of trabajadores">
+      <td>
+        {{trabajador.nombre}}
+      </td>
+      <td>
+        {{trabajador.apPaterno}}
+      </td>
+      <td>
+        {{trabajador.apMaterno}}
+      </td>
+      <td>
+        {{trabajador.fechaNacimiento}}
+      </td>
+      <td>
+        {{trabajador.tipoSanguineo}}
+      </td>
+      <td>
+        {{trabajador.estadoCivil}}
+      </td>
+      <td>
+        {{trabajador.claveElector}}
+      </td>
+      <td>
+        {{trabajador.seccion}}
+      </td>
+      <td>
+        {{trabajador.curp}}
+      </td>
+    </tr>
+  </tbody>
+</table>
