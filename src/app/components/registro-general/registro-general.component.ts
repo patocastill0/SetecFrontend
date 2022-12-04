@@ -64,4 +64,26 @@ export class RegistroGeneralComponent implements OnInit {
                 }
     );
   }
+
+  validarCorreo(){
+    let correo=this.trabajador.correoElectronico;
+    //console.log("nombre correo ",this.trabajador.correoElectronico);
+
+    if(correo===undefined){
+      correo="";
+    }
+    var expCorreo=  /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+    if(correo.match(expCorreo)){
+      //console.log("netro al true");
+      return true;
+
+    }else{
+      //console.log("netro al falso");
+    return false;
+    }
+  }
+  escribirCorreo(){
+
+  }
+
 }
