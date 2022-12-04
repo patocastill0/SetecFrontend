@@ -283,15 +283,22 @@
     </div>
 
     <div class="col-md-3">
-      <div class="form-floating mt-4">
-        <input name="municipio" [(ngModel)]="trabajador.municipio" type="text" class="form-control" id="floatingInputMunicipio" placeholder="name@example.com" [ngClass]="municipio.invalid && (municipio.dirty || municipio.touched)?'invalid-contorno':'form-controll'" #municipio="ngModel" required>
-        <label for="floatingInputMunicipio">Municipio</label>
-
-        <div class="invalid-relleno" *ngIf="municipio.invalid && (municipio.dirty || municipio.touched)">
-          <div  *ngIf="municipio.errors.required">
-            *Municipio Requerido
-          </div>
-        </div>
+      <div class="form-group col-sm flex-column d-flex">
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Buscar Municipio</mat-label>
+          <input type="text"
+                 placeholder="Ingrese nombre o clave de municipio"
+                 aria-label="Buscar"
+                 matInput
+                 [formControl]="autoMunicipio"
+                 [matAutocomplete]="auto1">
+                 <mat-icon matSuffix>search</mat-icon>
+              <mat-autocomplete #auto1="matAutocomplete" [displayWith]="mostrarDatosMunicipio" (optionSelected)="seleccionarMunicipio($event)">
+              <mat-option  *ngFor="let municipio of municipiosobser | async" [value]="municipio">
+                {{municipio.clavemunicipio}} {{municipio.nombreMunicipio}}
+              </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
       </div>
     </div>
 
