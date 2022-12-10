@@ -6,16 +6,17 @@ import { FormatoRegistroComponent } from './components/registro-general/registro
 import { RegistroCdcComponent } from './components/registro-general/registro_pasos/registro-cdc/registro-cdc.component';
 import { RegistroCluaComponent } from './components/registro-general/registro_pasos/registro-clua/registro-clua.component';
 import { RegistroDatosComponent } from './components/registro-general/registro_pasos/registro-datos/registro-datos.component';
+import { AuthGuard } from './login/guards/auth.guard';
 
 const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},//redirige al path login
   {path:'login',component:LoginComponent},
-  {path:'registro',component:RegistroGeneralComponent},
-  {path:'datos',component:RegistroDatosComponent},
-  {path:'clua',component:RegistroCluaComponent},
-  {path:'clua/:id',component:RegistroCluaComponent},
-  {path:'cdc',component:RegistroCdcComponent},
-  {path:'formatoregistro',component:FormatoRegistroComponent}
+  {path:'registro',component:RegistroGeneralComponent,canActivate:[AuthGuard]},
+  {path:'datos',component:RegistroDatosComponent,canActivate:[AuthGuard]},
+  {path:'clua',component:RegistroCluaComponent,canActivate:[AuthGuard]},
+  {path:'clua/:id',component:RegistroCluaComponent,canActivate:[AuthGuard]},
+  {path:'cdc',component:RegistroCdcComponent,canActivate:[AuthGuard]},
+  {path:'formatoregistro',component:FormatoRegistroComponent,canActivate:[AuthGuard]}
 
 
 
