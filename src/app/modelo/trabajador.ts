@@ -9,5 +9,8 @@ export class Trabajador extends Persona {
   clua : string;
   cdc : number;
   folio: string;
-
+  hasactanacimiento:boolean;
+  hascomprobante:boolean;
+  hascurp:boolean;
+  hasine:boolean;
 }
