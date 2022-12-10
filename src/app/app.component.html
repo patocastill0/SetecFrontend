@@ -7,45 +7,54 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<nav class="navbar navbar navbar-dark bg-primary navbar-expand-lg navbar-light  ">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img  class="img-fluid" width="100px" alt="">
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto m-lg-auto text-center">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/registro">REGISTRO</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link avtive" aria-current="page" routerLink="/datos">DATOS</a>
-        </li>
+<ng-container *ngIf="!authService.isAuthenticated(); else blockLogeado">
+  <router-outlet></router-outlet>
+</ng-container>
+<ng-template #blockLogeado>
+  <nav class="navbar navbar navbar-dark bg-primary navbar-expand-lg navbar-light  ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img  class="img-fluid" width="100px" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto m-lg-auto text-center">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/registro">REGISTRO</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link avtive" aria-current="page" routerLink="/datos">DATOS</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/clua">REGISTRO CLUA</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/clua">REGISTRO CLUA</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="/cdc">REGISTRO CDC</a>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/cdc">REGISTRO CDC</a>
+          </li>
 
-        <li class="nav-item">
-          <a class="nav-link active " aria-current="page" routerLink="/formatoregistro">BUSQUEDA DE REGISTROS</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">DATOS CDC</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link " aria-current="page" href="#">LISTA TALLERES CDC</a>
-        </li>
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link active " aria-current="page" routerLink="/formatoregistro">BUSQUEDA DE REGISTROS</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">DATOS CDC</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">LISTA TALLERES CDC</a>
+          </li>
+        </ul>
 
+      </div>
     </div>
+  </nav>
+  <div class = "container-xl">
+  <router-outlet></router-outlet>
   </div>
-</nav>
-<div class = "container-xl">
-<router-outlet></router-outlet>
-</div>
+
+
+</ng-template>
+
+
