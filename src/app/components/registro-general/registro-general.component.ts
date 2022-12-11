@@ -11,6 +11,7 @@ import { Sector } from 'src/app/modelo/sector';
 import { Trabajador } from 'src/app/modelo/trabajador';
 import { MunicipioService } from 'src/app/servicios/municipio.service';
 import { TrabajadorService } from 'src/app/servicios/trabajador.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-general',
@@ -57,7 +58,7 @@ export class RegistroGeneralComponent implements OnInit {
     console.log(trabajador);
     this.trabajadorServicio.crearTrabajador(trabajador).subscribe(
       response=> {this.trabajador=response;
-
+        swal('Trabajador Agregado',`Trabajador ${this.trabajador.nombre} ${this.trabajador.apPaterno} ${this.trabajador.apMaterno} creado con éxito`,'success');
                 }
     );
   }
