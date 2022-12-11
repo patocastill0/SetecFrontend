@@ -17,8 +17,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
 import { AlertsComponent } from './alerts/alerts.component';
 import { AlertModule } from './alerts/alert/alert.module';
+import { ListaTalleresComponent } from './components/registro-general/registro_pasos/lista-talleres/lista-talleres.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { AlertModule } from './alerts/alert/alert.module';
     RegistroCdcComponent,
     FormatoRegistroComponent,
     FormatoRegistroComponent,
+    ListaTalleresComponent,
 
 
   ],

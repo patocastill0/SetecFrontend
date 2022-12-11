@@ -46,10 +46,15 @@ export class RegistroGeneralComponent implements OnInit {
     this.obtenerListaCargo();
     this.obtenerListaRegion();
     this.obtenerListaCdcs();
+    this.trabajador.hasactanacimiento=false;
+    this.trabajador.hascomprobante=false;
+    this.trabajador.hascurp=false;
+    this.trabajador.hasine=false;
     //console.log(this.sectorlista)
   }
 
   crearTrabajador(trabajador){
+
     console.log(trabajador);
     this.trabajadorServicio.crearTrabajador(trabajador).subscribe(
       response=> {this.trabajador=response;

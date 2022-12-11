@@ -1,0 +1,81 @@
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-body">
+
+            <div class="row d-flex justify-content-between">
+
+
+                <div class="col-md-auto d-flex justify-content-between">
+                        <label class="labelejemp">CURSO</label>
+
+                    <div class="col-md-auto ">
+                        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select" aria-label="Default select example">
+                             <option [ngValue]="undefined"> Selecionar Curso </option>
+                             <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                        </select>
+                    </div>
+                </div>
+
+
+
+                    <div class="col-md-auto d-flex justify-content-between">
+                        <label class="labelejemp ">PERIODO</label>
+
+
+                    <div class="col-md-auto ">
+                        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                            <option [ngValue]="undefined" > Selecionar Periodo </option>
+                            <option ngValue="1">Enero-Marzo</option>
+                            <option ngValue="2">Abril-Junio</option>
+                            <option ngValue="3">Verano</option>
+                            <option ngValue="4">Septiembre-Diciembre</option>
+                        </select>
+                    </div>
+                    </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-auto mt-4">
+                    <label class="labelejemp">CODIGO CURSO: </label>
+                </div>
+                <div class="col-md-2">
+                    <div class=" mt-4">
+                        <input type="text"  class="form-control"  id="codigocurso" placeholder="CODIGO CURSO">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-auto mt-4">
+                    <label class="labelejemp" for="selectanio">HORA INICIO</label>
+                </div>
+                <div class="col-md-auto">
+                    <select name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select mt-4 " aria-label="Default select example">
+                      <option [ngValue]="undefined" > [Selecionar HORA] </option>
+                      <option ngValue="0708">07:00 a 08:00 hrs</option>
+                      <option ngValue="0809">08:00 a 09:00 hrs</option>
+                      <option ngValue="0910">09:00 a 10:00 hrs</option>
+                      <option ngValue="1011">10:00 a 11:00 hrs</option>
+                      <option ngValue="1112">11:00 a 12:00 hrs</option>
+                      <option ngValue="1213">12:00 a 13:00 hrs</option>
+                      <option ngValue="1314">13:00 a 14:00 hrs</option>
+                      <option ngValue="1415">14:00 a 15:00hrs</option>
+                      <option ngValue="1516">15:00 a 16:00hrs</option>
+                      <option ngValue="1617">16:00 a 17:00 hrs</option>
+                      <option ngValue="1718">17:00 a 18:00 hrs</option>
+                      <option ngValue="1819">18:00 a 19:00hrs</option>
+                      <option ngValue="1920">19:00 a 20:00hrs</option>
+                    </select>
+                  </div>
+
+            </div>
+
+        </div>
+      </div>
+</div>
+
+
+
+
