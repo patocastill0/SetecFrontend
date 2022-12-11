@@ -17,6 +17,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AlertsComponent } from './alerts/alerts.component';
+import { AlertModule } from './alerts/alert/alert.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     RegistroCdcComponent,
     FormatoRegistroComponent,
     FormatoRegistroComponent,
+
 
   ],
   imports: [
@@ -40,7 +43,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    AlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]
