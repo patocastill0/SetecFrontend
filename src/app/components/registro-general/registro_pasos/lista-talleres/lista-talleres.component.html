@@ -2,25 +2,28 @@
     <div class="card mt-4">
         <div class="card-body">
 
-            <div class="row justify-content-between">
+            <div class="row d-flex justify-content-between">
 
-                    <div class="col-md-auto mt-4">
+
+                <div class="col-md-auto d-flex justify-content-between">
                         <label class="labelejemp">CURSO</label>
-                    </div>
-                    <div class="col-md-auto mt-4" >
-                        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select " aria-label="Default select example">
-                                <option [ngValue]="undefined"> Selecionar Curso </option>
-                                <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+
+                    <div class="col-md-auto ">
+                        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select" aria-label="Default select example">
+                             <option [ngValue]="undefined"> Selecionar Curso </option>
+                             <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
                         </select>
                     </div>
+                </div>
 
 
 
-                    <div class="col-md-auto mt-4">
-                        <label class="labelejemp">PERIODO</label>
-                    </div>
-                    <div class="col-md-auto">
-                        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select mt-4 " aria-label="Default select example">
+                    <div class="col-md-auto d-flex justify-content-between">
+                        <label class="labelejemp ">PERIODO</label>
+
+
+                    <div class="col-md-auto ">
+                        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
                             <option [ngValue]="undefined" > Selecionar Periodo </option>
                             <option ngValue="1">Enero-Marzo</option>
                             <option ngValue="2">Abril-Junio</option>
@@ -28,12 +31,14 @@
                             <option ngValue="4">Septiembre-Diciembre</option>
                         </select>
                     </div>
+                    </div>
+
 
             </div>
 
             <div class="row">
                 <div class="col-md-auto mt-4">
-                    <label class="labelejemp">CODIGO CURSO</label>
+                    <label class="labelejemp">CODIGO CURSO: </label>
                 </div>
                 <div class="col-md-2">
                     <div class=" mt-4">

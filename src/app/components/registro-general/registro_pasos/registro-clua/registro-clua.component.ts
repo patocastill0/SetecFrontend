@@ -43,13 +43,15 @@ export class RegistroCluaComponent implements OnInit {
     this.clua.trabajadordto=this.trabajador;
     console.log(this.clua);
     this.cluaservicio.crearCluaser(this.clua).subscribe(
-      response=> {swal('Clua Creada',`Clua ${this.clua.idclua} creada con éxito`,'success');
+      response=> {
+        swal('Clua Creada',`Clua ${this.cluacompleto} creada con éxito`,'success');
+
     }
     )
   }
   onKeyUp(event){
     this.cluacompleto= this.clua.anioafiliacion +""+ this.trabajador.sector +""+ this.trabajador.cargo +""+
-      this.trabajador.municipio+""+this.trabajador.region+""
+      this.trabajador.municipio+""+this.trabajador.region+""+this.trabajador.folio
 
   }
   ObtenerCluas(page:number){
