@@ -10,6 +10,7 @@ import { Trabajador } from 'src/app/modelo/trabajador';
 import { Trabajadorcurso } from 'src/app/modelo/trabajadorcurso';
 import { TrabajadorService } from 'src/app/servicios/trabajador.service';
 import { TrabajadorcursoService } from 'src/app/servicios/trabajadorcurso.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-cdc',
@@ -58,7 +59,10 @@ export class RegistroCdcComponent implements OnInit {
     this.trabacursos.idtrabajador= this.trabajador.curp;
     console.log(this.trabacursos);
     this.trabajadorcursoService.creartrabajadorcurso(this.trabacursos).subscribe(
-      response => {console.log("curso  creado")}
+      response => {
+        swal('Curso Agregado',`Curso agregado con éxito`,'success');
+
+      }
     )
   }
 
