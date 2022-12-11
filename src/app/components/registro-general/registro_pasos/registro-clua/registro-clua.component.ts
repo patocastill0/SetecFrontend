@@ -5,6 +5,7 @@ import { Trabajador } from 'src/app/modelo/trabajador';
 import { Trabajadorclua } from 'src/app/modelo/trabajadorclua';
 import { CluaService } from 'src/app/servicios/clua.service';
 import { TrabajadorService } from 'src/app/servicios/trabajador.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-registro-clua',
@@ -42,7 +43,8 @@ export class RegistroCluaComponent implements OnInit {
     this.clua.trabajadordto=this.trabajador;
     console.log(this.clua);
     this.cluaservicio.crearCluaser(this.clua).subscribe(
-      response=> {console.log("Clua creada")}
+      response=> {swal('Clua Creada',`Clua ${this.clua.idclua} creada con éxito`,'success');
+    }
     )
   }
   onKeyUp(event){

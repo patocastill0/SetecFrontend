@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from '../modelo/usuario';
 import { AuthserviceService } from '../servicios/authservice.service';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +17,26 @@ export class LoginComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    if(this.authService.isAuthenticated){
-      console.log("Sesion iniciada");
+    if (this.authService.isAuthenticated()) {
+      swal({
+        title: 'Ya Has iniciado Sesion',
+        text: `¿${this.authService.usuario.userName} le gustaria cerrar Session?!`,
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, cerrar session!',
+        cancelButtonText: 'No, cancelar',
+      }).then((result) => {
+        if (result.value) {
+          this.authService.logout();
+        } else {
+          this.router.navigate(['/registro']);
+        }
+      });
     }
   }
  public  loginUsuarios():void{
     if(this.usuario.userName==null || this.usuario.password==null){
-      console.log("Error de Login: usuario o password vacios");
+      swal('Error de Login','usuario o nombre vacios!','error');
       return;
     }
       this.authService.login(this.usuario).subscribe(
@@ -30,6 +44,10 @@ export class LoginComponent implements OnInit {
           this.authService.guardarUsuario(response.access_token);
           this.authService.guardarToken(response.access_token);
           this.router.navigate(['/registro']);
+        },err=>{
+          if(err.status==400){
+            swal('Error de Login','usuario o contraseña Incorrectos!','error');
+          }
         }
       )
 
