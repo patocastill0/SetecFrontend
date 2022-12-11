@@ -370,28 +370,28 @@
   <div class="row">
     <h3 class="mt-4">SELECIONA LOS DOCUMENTOS ENTREGADOS</h3>
     <div class="col-md-auto  form-check">
-      <input class="inputejem" type="checkbox" value="" id="checkacta">
+      <input name="actanacimiento" [(ngModel)]="trabajador.hasactanacimiento" class="inputejem" type="checkbox" value="" id="checkacta">
       <label class="labelejem" for="checkacta">
         ACTA DE NACIMIENTO
       </label>
     </div>
 
     <div class="col-md-auto form-check">
-      <input class="inputejem" type="checkbox" value="" id="checkdomicilio">
+      <input name="comprobantedomicilio" [(ngModel)]="trabajador.hascomprobante" class="inputejem" type="checkbox" value="" id="checkdomicilio">
       <label class="labelejem" for="checkdomicilio">
         COMPROBANTE DE DOMICILIO
       </label>
     </div>
 
     <div class="col-md-auto  form-check">
-      <input class="inputejem" type="checkbox" value="" id="checkcurp">
+      <input name="curpdocumento" [(ngModel)]="trabajador.hascurp" class="inputejem" type="checkbox" value="" id="checkcurp">
       <label class="labelejem" for="checkcurp">
         CURP
       </label>
     </div>
 
     <div class="col-md-auto  form-check">
-      <input class="inputejem" type="checkbox" value="" id="checkineife">
+      <input name="inedocumento" [(ngModel)]="trabajador.hasine" class="inputejem" type="checkbox" value="" id="checkineife">
       <label class="labelejem" for="checkineife">
         INE/IFE
       </label>
