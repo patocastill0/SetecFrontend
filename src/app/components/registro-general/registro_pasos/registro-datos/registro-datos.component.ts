@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Trabajador } from 'src/app/modelo/trabajador';
+import { AuthserviceService } from 'src/app/servicios/authservice.service';
 import { TrabajadorService } from 'src/app/servicios/trabajador.service';
 
 @Component({
@@ -9,8 +10,10 @@ import { TrabajadorService } from 'src/app/servicios/trabajador.service';
 })
 export class RegistroDatosComponent implements OnInit {
 
-  constructor(public trabajadorService:TrabajadorService) { }
+  constructor(public trabajadorService:TrabajadorService,
+    public authService:AuthserviceService) { }
     trabajadores:Trabajador[];
+    trabajador:Trabajador;
   ngOnInit(): void {
     this.obtenerTrabajadores(0);
   }
@@ -20,5 +23,13 @@ export class RegistroDatosComponent implements OnInit {
           this.trabajadores=response.contenido as Trabajador[]
         }
       ) //Detecta un cambio en la base de datos
+  }
+
+  public obtenerInfoTrabajador(curp:string){
+      this.trabajadorService
+      .obtenerInfoTrabajador(curp)
+      .subscribe(response => {
+        this.trabajador =response;
+      });
   }
 }

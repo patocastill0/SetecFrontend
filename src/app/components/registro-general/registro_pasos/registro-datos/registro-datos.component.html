@@ -1,36 +1,19 @@
 <table class="table table-striped table-hover table-bordered">
   <thead>
     <tr>
-      <th >Nombre</th>
-      <th >Apellido Paterno</th>
-      <th >Apellido Paterno</th>
-      <th >Fecha Nacimiento</th>
-      <th >Tipo Sanguineo</th>
-      <th >Estado Civil</th>
+      <th >Nombre Completo</th>
       <th >Clave Elector</th>
       <th >Seccion</th>
       <th >CURP</th>
+      <th >Detalles</th>
+      <th ><i class="bi bi-pencil"></i></th>
+      <th ><i class="bi bi-trash-fill"></i></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let trabajador of trabajadores">
       <td>
-        {{trabajador.nombre}}
-      </td>
-      <td>
-        {{trabajador.apPaterno}}
-      </td>
-      <td>
-        {{trabajador.apMaterno}}
-      </td>
-      <td>
-        {{trabajador.fechaNacimiento}}
-      </td>
-      <td>
-        {{trabajador.tipoSanguineo}}
-      </td>
-      <td>
-        {{trabajador.estadoCivil}}
+        {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}
       </td>
       <td>
         {{trabajador.claveElector}}
@@ -39,8 +22,70 @@
         {{trabajador.seccion}}
       </td>
       <td>
-        {{trabajador.curp}}
+        <button
+          type="button"
+          name="detalles"
+          class="btn btn-primary btn-sm"
+          data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+          (click)="obtenerInfoTrabajador(trabajador.curp)"
+        >detalles
+        </button>
       </td>
+      <th
+              class="text-center"
+              *ngIf="authService.hasRole(['ROLE_ADMIN'])">
+              <i class="fas fa-pencil-alt"></i>
+            </th>
+            <th class="text-center" *ngIf="authService.hasRole(['ROLE_ADMIN'])">
+              <i class="fas fa-trash-alt"></i>
+            </th>
     </tr>
   </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" >
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h5 class="text-center">       DATOS DEL TRABAJADOR</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                DATOS PERSONALES
+              </div>
+              <ul class="list-group list-group-flush" >
+                <li class="list-group-item">Nombre: {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}</li>
+                <li class="list-group-item">Genero: {{trabajador.genero}}</li>
+                <li class="list-group-item">Fecha nacimiento: {{trabajador.fechaNacimiento}}</li>
+                <li class="list-group-item">Estado civil: {{trabajador.estadoCivil}}</li>
+                <li class="list-group-item">Tipo Sanguineo: {{trabajador.tipoSanguineo}}</li>
+                <li class="list-group-item">Curp: {{trabajador.curp}}</li>
+                <li class="list-group-item">Direccion: {{trabajador.calle}} #{{trabajador.numero}} {{trabajador.colonia}}</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                DATOS GENERALES
+              </div>
+              <ul class="list-group list-group-flush" >
+                <li class="list-group-item">Celular: {{trabajador.celular}}</li>
+                <li class="list-group-item">Tel. Casa: {{trabajador.telCasa}}</li>
+                <li class="list-group-item">Correo: {{trabajador.correoElectronico}}</li>
+                <li class="list-group-item">Facebook: {{trabajador.facebook}}</li>
+                <li class="list-group-item">Instagram: {{trabajador.instagram}}</li>
+                <li class="list-group-item">Twitter: {{trabajador.twitter}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

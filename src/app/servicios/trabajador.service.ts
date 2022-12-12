@@ -36,6 +36,10 @@ export class TrabajadorService {
     )
   }
 
+  obtenerInfoTrabajador(id):Observable<Trabajador>{
+    return this.httpClient.get<Trabajador>(`${this.baseURL}/${id}`,{headers:this.agregarAuthorizationHeader()});
+  }
+
   obtenerListaSector():Observable<Sector[]>{
     return this.httpClient.get<Sector[]>(`${this.baseURL}/sector`);
   }
