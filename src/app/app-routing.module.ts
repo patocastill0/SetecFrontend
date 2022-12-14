@@ -13,6 +13,7 @@ const routes: Routes = [
   {path:'',redirectTo:'/login',pathMatch:'full'},//redirige al path login
   {path:'login',component:LoginComponent},
   {path:'registro',component:RegistroGeneralComponent,canActivate:[AuthGuard]},
+  {path:'registro/:id',component:RegistroGeneralComponent,canActivate:[AuthGuard]},
   {path:'datos',component:RegistroDatosComponent},
   {path:'clua',component:RegistroCluaComponent,canActivate:[AuthGuard]},
   {path:'clua/:id',component:RegistroCluaComponent,canActivate:[AuthGuard]},

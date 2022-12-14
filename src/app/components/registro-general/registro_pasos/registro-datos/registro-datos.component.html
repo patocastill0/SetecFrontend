@@ -34,14 +34,28 @@
         >detalles
         </button>
       </td>
-      <th
-              class="text-center"
+      <td
               *ngIf="authService.hasRole(['ROLE_ADMIN'])">
-              <i class="bi bi-pencil"></i>
-            </th>
-            <th class="text-center" *ngIf="authService.hasRole(['ROLE_ADMIN'])">
-              <i class="bi bi-trash-fill"></i>
-            </th>
+
+              <button
+                type="button"
+                name="editar"
+                [routerLink]="['/registro',trabajador.curp]"
+                class="btn btn-primary btn-sm">
+                <i class="bi bi-pencil"></i>
+              </button>
+      </td>
+      <td *ngIf="authService.hasRole(['ROLE_ADMIN'])">
+        <button
+          type="button"
+          name="eliminar"
+          class="btn btn-danger btn-sm"
+         (click)='eliminarTrabajador(trabajador)'
+        >
+        <i class="bi bi-trash-fill"></i>
+        </button>
+      </td>
+
     </tr>
   </tbody>
 </table>
