@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
+import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Cargo } from 'src/app/modelo/cargo';
@@ -31,11 +32,14 @@ export class RegistroGeneralComponent implements OnInit {
   regionlista : Region[];
   cdcslista : Cdcs[];
   autoMunicipio = new FormControl('');
+  titulo: string;
 
-  constructor(public trabajadorServicio:TrabajadorService, public municipioServicio:MunicipioService) {
+  constructor(public trabajadorServicio:TrabajadorService, public municipioServicio:MunicipioService,
+    public activatedRouter:ActivatedRoute) {
   }
 
   ngOnInit(): void {
+    this.cargarTrabajador();
     this.municipiosobser = this.autoMunicipio.valueChanges.pipe(
 
       map(value => typeof value === 'string' ? value : value.rfc_contribuyente),
@@ -51,6 +55,17 @@ export class RegistroGeneralComponent implements OnInit {
     this.trabajador.hascurp=false;
     this.trabajador.hasine=false;
     //console.log(this.sectorlista)
+  }
+
+  cargarTrabajador(){
+    this.activatedRouter.params.subscribe(params=>{
+      let id=params['id'];
+      if(id){
+        //this.idFound=true;
+        this.titulo="ACTUALIZAR TRABAJADOR";
+        this.trabajadorServicio.obtenerTrabajador(id).subscribe(trabajador=>this.trabajador=trabajador)
+      }
+    });
   }
 
   crearTrabajador(trabajador){

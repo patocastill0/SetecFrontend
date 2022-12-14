@@ -32,4 +32,8 @@ export class RegistroDatosComponent implements OnInit {
         this.trabajador =response;
       });
   }
+
+  eliminarTrabajador(trabajador:Trabajador){
+
+  }
 }
