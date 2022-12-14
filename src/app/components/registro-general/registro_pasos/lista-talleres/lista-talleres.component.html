@@ -2,39 +2,52 @@
     <div class="card mt-4">
         <div class="card-body">
 
-            <div class="row d-flex justify-content-between">
+            <div class=" row">
+                <div class="col-md-auto col-form-label">
+                    <label>INSTRUCTOR</label>
+                </div>
+                <div class="col-md-auto ">
+                    <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                            <option [ngValue]="undefined">[ Selecionar INSTRUCTOR ]</option>
+                            <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                    </select>
+                </div>
+            </div>
 
 
-                <div class="col-md-auto d-flex justify-content-between">
-                        <label class="labelejemp">CURSO</label>
+            <div class="row ">
 
-                    <div class="col-md-auto ">
-                        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select" aria-label="Default select example">
-                             <option [ngValue]="undefined"> Selecionar Curso </option>
-                             <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
-                        </select>
+                <div class="d-flex justify-content-between mt-4">
+                    <div class="d-flex justify-content-around ">
+                            <div class="col-md-auto col-form-label">
+                                <label>CURSO</label>
+                            </div>
+                            <div class="col-md-auto ">
+                                <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                                        <option [ngValue]="undefined"> Selecionar Curso </option>
+                                        <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="col-md-auto col-form-label labelizquierda ">
+                            <label style="left: 300px;">PERIODO</label>
+                        </div>
+                        <div class="col-md-auto ">
+                            <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                                <option [ngValue]="undefined" > Selecionar Periodo </option>
+                                <option ngValue="1">Enero-Marzo</option>
+                                <option ngValue="2">Abril-Junio</option>
+                                <option ngValue="3">Verano</option>
+                                <option ngValue="4">Septiembre-Diciembre</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-
-
-                    <div class="col-md-auto d-flex justify-content-between">
-                        <label class="labelejemp ">PERIODO</label>
-
-
-                    <div class="col-md-auto ">
-                        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
-                            <option [ngValue]="undefined" > Selecionar Periodo </option>
-                            <option ngValue="1">Enero-Marzo</option>
-                            <option ngValue="2">Abril-Junio</option>
-                            <option ngValue="3">Verano</option>
-                            <option ngValue="4">Septiembre-Diciembre</option>
-                        </select>
-                    </div>
-                    </div>
-
-
             </div>
+
+
 
             <div class="row">
                 <div class="col-md-auto mt-4">

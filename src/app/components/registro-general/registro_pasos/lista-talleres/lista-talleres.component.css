@@ -1,6 +1,28 @@
-.labelejemp{
-
-    display: block;
+.posdiv{
     position: relative;
-    top: 10px;
+    top: 10px; left: 250px;
+}
+
+.labelejemp{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+  }
+
+.posdivinicio{
+    position: relative;
+    top: 0px; left: 10px;
+}
+.labelizquierda{
+    position: relative;
+    top: 0px; left: -10px;
+}
+.centrardiv{
+    display: flex;
+    justify-content: space-around;
+
+}
+.divinicio{
+    display: flex;
+
 }

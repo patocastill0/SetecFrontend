@@ -22,6 +22,9 @@
         {{trabajador.seccion}}
       </td>
       <td>
+        {{trabajador.curp}}
+      </td>
+      <td>
         <button
           type="button"
           name="detalles"
@@ -34,10 +37,10 @@
       <th
               class="text-center"
               *ngIf="authService.hasRole(['ROLE_ADMIN'])">
-              <i class="fas fa-pencil-alt"></i>
+              <i class="bi bi-pencil"></i>
             </th>
             <th class="text-center" *ngIf="authService.hasRole(['ROLE_ADMIN'])">
-              <i class="fas fa-trash-alt"></i>
+              <i class="bi bi-trash-fill"></i>
             </th>
     </tr>
   </tbody>
