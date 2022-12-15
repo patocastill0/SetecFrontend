@@ -104,10 +104,10 @@
     <div class="col-md-3">
       <select name="estadoCivil" [(ngModel)]="trabajador.estadoCivil" class="form-select mt-4 anchura" aria-label="Default select example" [ngClass]="estadocivil.invalid && (estadocivil.dirty || estadocivil.touched)?'invalid-contorno':'form-controll'" #estadocivil="ngModel" required>
         <option [ngValue]="undefined"> Estado Civil </option>
-        <option ngValue="1">Soltera</option>
-        <option ngValue="2">Casada</option>
-        <option ngValue="3">Divorciada</option>
-        <option ngValue="4">Viuda</option>
+        <option [ngValue]=1>Soltera</option>
+        <option [ngValue]=2>Casada</option>
+        <option [ngValue]=3>Divorciada</option>
+        <option [ngValue]=4>Viuda</option>
       </select>
 
       <div class="invalid-relleno" *ngIf="estadocivil.invalid && (estadocivil.dirty || estadocivil.touched)">
