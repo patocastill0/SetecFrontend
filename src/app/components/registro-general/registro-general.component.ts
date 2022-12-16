@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from '@angular/forms';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Cargo } from 'src/app/modelo/cargo';
@@ -27,6 +27,7 @@ export class RegistroGeneralComponent implements OnInit {
   muniarreglo : Municipio[];
   municipiosobser:Observable<any[]>;
   genero : string;
+  idFound=false;
   sectorlista : Sector[];
   cargolista : Cargo[];
   regionlista : Region[];
@@ -35,7 +36,8 @@ export class RegistroGeneralComponent implements OnInit {
   titulo: string;
 
   constructor(public trabajadorServicio:TrabajadorService, public municipioServicio:MunicipioService,
-    public activatedRouter:ActivatedRoute) {
+    public activatedRouter:ActivatedRoute,
+    public router:Router) {
   }
 
   ngOnInit(): void {
@@ -61,7 +63,7 @@ export class RegistroGeneralComponent implements OnInit {
     this.activatedRouter.params.subscribe(params=>{
       let id=params['id'];
       if(id){
-        //this.idFound=true;
+        this.idFound=true;
         this.titulo="ACTUALIZAR TRABAJADOR";
         this.trabajadorServicio.obtenerTrabajador(id).subscribe(trabajador=>this.trabajador=trabajador)
       }
@@ -77,6 +79,15 @@ export class RegistroGeneralComponent implements OnInit {
                 }
     );
   }
+
+  public actualizarTrabajador():void{
+    this.trabajadorServicio.actualizarTrabajador(this.trabajador).subscribe(trabajador=>{
+      this.router.navigate(['/datos']);
+
+      swal('Trabajador Actualizado',`Trabajador ${this.trabajador.nombre}  ${this.trabajador.apPaterno} ${this.trabajador.apMaterno} actualizado con éxito`,'success');
+    });
+  }
+
   obtenerListaSector(){
     this.trabajadorServicio.obtenerListaSector().subscribe(
       response=> {this.sectorlista=response;
