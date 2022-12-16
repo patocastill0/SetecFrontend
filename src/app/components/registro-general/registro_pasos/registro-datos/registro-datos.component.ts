@@ -13,7 +13,7 @@ export class RegistroDatosComponent implements OnInit {
   constructor(public trabajadorService:TrabajadorService,
     public authService:AuthserviceService) { }
     trabajadores:Trabajador[];
-    trabajador:Trabajador;
+    trabajador = new Trabajador();
   ngOnInit(): void {
     this.obtenerTrabajadores(0);
   }

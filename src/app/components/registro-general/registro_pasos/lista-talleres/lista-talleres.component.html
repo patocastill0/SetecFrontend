@@ -2,73 +2,142 @@
     <div class="card mt-4">
         <div class="card-body">
 
-            <div class="row justify-content-between">
-
-                    <div class="col-md-auto mt-4">
-                        <label class="labelejemp">CURSO</label>
+            <div class=" row">
+                <div class="d-flex justify-content-between mt-4">
+                    <div class="d-flex justify-content-around ">
+                            <div class="col-md-auto col-form-label">
+                                <label>INSTRUCTOR</label>
+                            </div>
+                            <div class="col-md-auto ">
+                                <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                                        <option [ngValue]="undefined"> [Selecionar Instructor] </option>
+                                        <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                                </select>
+                            </div>
                     </div>
-                    <div class="col-md-auto mt-4" >
-                        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select " aria-label="Default select example">
-                                <option [ngValue]="undefined"> Selecionar Curso </option>
-                                <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
-                        </select>
+                    <div class="d-flex justify-content-around">
+                        <div class="col-md-auto col-form-label labelizquierda ">
+                            <label style="left: 300px;">PERIODO</label>
+                        </div>
+                        <div class="col-md-auto ">
+                            <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                                <option [ngValue]="undefined" > Selecionar Periodo </option>
+                                <option ngValue="1">Enero-Marzo</option>
+                                <option ngValue="2">Abril-Junio</option>
+                                <option ngValue="3">Verano</option>
+                                <option ngValue="4">Septiembre-Diciembre</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row ">
+
+                <div class="d-flex justify-content-between mt-4">
+                    <div class="d-flex justify-content-around ">
+                            <div class="col-md-auto col-form-label">
+                                <label>CURSO</label>
+                            </div>
+                            <div class="col-md-auto ">
+                                <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                                        <option [ngValue]="undefined"> Selecionar Curso </option>
+                                        <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="d-flex justify-content-around">
+                        <div class="col-md-auto col-form-label labelizquierda ">
+                            <label style="left: 300px;">CENTRO DE DESARROLLO COMUNITARIO DE:</label>
+                        </div>
+                        <div class="col-md-auto ">
+                            <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                                <option [ngValue]="undefined" > Selecionar CDC </option>
+                                <option ngValue="1">Enero-Marzo</option>
+                                <option ngValue="2">Abril-Junio</option>
+                                <option ngValue="3">Verano</option>
+                                <option ngValue="4">Septiembre-Diciembre</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="row">
+                <div class="d-flex justify-content-between mt-4">
+                    <div class="d-flex justify-content-around ">
+                        <div class="col-md-auto col-form-label">
+                            <label>CODIGO CURSO: </label>
+                        </div>
+                        <div class="col-md-auto ">
+                            <input name="codigocurso" [(ngModel)]="trabacursos.codigocurso" type="text"  class="form-control posdivinicio"  id="codigocurso" placeholder="CODIGO CURSO">
+                        </div>
                     </div>
 
+                    <div class="d-flex justify-content-around">
+                        <div class="col-md-auto col-form-label labelizquierda ">
+                            <label style="left: 300px;">REPORTE DE: </label>
+                        </div>
+                        <div class="col-md-auto ">
+                            <textarea name="codigocurso" [(ngModel)]="trabacursos.codigocurso" type="text"  class="form-control posdivinicio"  id="codigocurso" placeholder="REPORTE"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-
-                    <div class="col-md-auto mt-4">
-                        <label class="labelejemp">PERIODO</label>
+            <div class="row">
+                <div class="d-flex justify-content-start  ">
+                    <div class="col-md-auto col-form-label">
+                        <label class="labelejemp" for="selectanio">HORA INICIO</label>
                     </div>
                     <div class="col-md-auto">
-                        <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select mt-4 " aria-label="Default select example">
-                            <option [ngValue]="undefined" > Selecionar Periodo </option>
-                            <option ngValue="1">Enero-Marzo</option>
-                            <option ngValue="2">Abril-Junio</option>
-                            <option ngValue="3">Verano</option>
-                            <option ngValue="4">Septiembre-Diciembre</option>
+                        <select name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select posdivinicio " aria-label="Default select example">
+                          <option [ngValue]="undefined" > [Selecionar HORA] </option>
+                          <option ngValue="0708">07:00 a 08:00 hrs</option>
+                          <option ngValue="0809">08:00 a 09:00 hrs</option>
+                          <option ngValue="0910">09:00 a 10:00 hrs</option>
+                          <option ngValue="1011">10:00 a 11:00 hrs</option>
+                          <option ngValue="1112">11:00 a 12:00 hrs</option>
+                          <option ngValue="1213">12:00 a 13:00 hrs</option>
+                          <option ngValue="1314">13:00 a 14:00 hrs</option>
+                          <option ngValue="1415">14:00 a 15:00hrs</option>
+                          <option ngValue="1516">15:00 a 16:00hrs</option>
+                          <option ngValue="1617">16:00 a 17:00 hrs</option>
+                          <option ngValue="1718">17:00 a 18:00 hrs</option>
+                          <option ngValue="1819">18:00 a 19:00hrs</option>
+                          <option ngValue="1920">19:00 a 20:00hrs</option>
                         </select>
-                    </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col-md-auto mt-4">
-                    <label class="labelejemp">CODIGO CURSO</label>
+                      </div>
                 </div>
-                <div class="col-md-2">
-                    <div class=" mt-4">
-                        <input type="text"  class="form-control"  id="codigocurso" placeholder="CODIGO CURSO">
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-auto mt-4">
-                    <label class="labelejemp" for="selectanio">HORA INICIO</label>
-                </div>
-                <div class="col-md-auto">
-                    <select name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select mt-4 " aria-label="Default select example">
-                      <option [ngValue]="undefined" > [Selecionar HORA] </option>
-                      <option ngValue="0708">07:00 a 08:00 hrs</option>
-                      <option ngValue="0809">08:00 a 09:00 hrs</option>
-                      <option ngValue="0910">09:00 a 10:00 hrs</option>
-                      <option ngValue="1011">10:00 a 11:00 hrs</option>
-                      <option ngValue="1112">11:00 a 12:00 hrs</option>
-                      <option ngValue="1213">12:00 a 13:00 hrs</option>
-                      <option ngValue="1314">13:00 a 14:00 hrs</option>
-                      <option ngValue="1415">14:00 a 15:00hrs</option>
-                      <option ngValue="1516">15:00 a 16:00hrs</option>
-                      <option ngValue="1617">16:00 a 17:00 hrs</option>
-                      <option ngValue="1718">17:00 a 18:00 hrs</option>
-                      <option ngValue="1819">18:00 a 19:00hrs</option>
-                      <option ngValue="1920">19:00 a 20:00hrs</option>
-                    </select>
-                  </div>
-
             </div>
 
         </div>
       </div>
+
+      <table class="table table-striped table-hover table-bordered mt-3">
+        <thead>
+
+          <tr valign="middle">
+            <th rowspan="2">No.</th>
+            <th rowspan="2">FOLIO No.</th>
+            <th rowspan="2">NOMBRE</th>
+            <th colspan="4">ASISTENCIAS (Semanas)</th>
+            <th rowspan="2">Observaciones </th>
+          </tr>
+          <tr>
+            <th [width]="30">1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+          </tr>
+
+        </thead>
+    </table>
+
 </div>
 
 

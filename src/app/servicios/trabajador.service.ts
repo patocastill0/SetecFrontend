@@ -9,6 +9,7 @@ import { Cargo } from '../modelo/cargo';
 import { Region } from '../modelo/region';
 import { Cdcs } from '../modelo/cdcs';
 import { environment } from 'src/environments/environment';
+import { AlertService } from '../alerts/alert.service';
 
 
 @Injectable({
@@ -19,7 +20,13 @@ export class TrabajadorService {
 
   private httpHeaders= new HttpHeaders({'Content-Type':'application/json'});
 
-  constructor(public httpClient:HttpClient, public authService:AuthserviceService) { }
+  constructor(public httpClient:HttpClient, public authService:AuthserviceService,
+    public alertService:AlertService) { }
+
+    options = {
+      autoClose: true,
+      keepAfterRouteChange: false
+    };
 
   private agregarAuthorizationHeader(){
     let token= this.authService.token;
@@ -59,7 +66,7 @@ export class TrabajadorService {
     return this.httpClient.post<Trabajador>(`${this.baseURL}`,trabajador).pipe(
       catchError(e=>{
         if(e.status==302){
-
+          this.alertService.error('YA EXISTE UNA CURP ASOCIADA', this.options);
         }
         return throwError(e);
       })
