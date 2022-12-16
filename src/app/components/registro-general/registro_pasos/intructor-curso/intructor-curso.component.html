@@ -1,0 +1,117 @@
+<div class="container">
+    <div class="card mt-4">
+        <div class="card-header text-center">PARA USO EXCLUSIVO DE LOS CDC'S</div>
+        <div class="card-body">
+            <h5 class="card-title text-center" style="font-size: larger;"> CREACION DE INSTRUCTOR</h5>
+            <div class="row">
+
+                <div class="col-md-3">
+                    <div class="form-floating mt-4">
+                      <input name="nombre" [(ngModel)]="instructor.nombre" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
+                      <label for="floatingInputNombre">Nombre(s)</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-floating mt-4">
+                      <input  name="apPaterno" [(ngModel)]="instructor.apPaterno" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com"   required>
+                      <label for="floatingInputAp">Apellido Paterno</label>
+                    </div>
+                  </div>
+
+                  <div class="col-md-3">
+                    <div class="form-floating mt-4">
+                      <input  name="apMaternop" [(ngModel)]="instructor.apMaterno" type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com"  required>
+                      <label for="floatingInputAm">Apellido Materno</label>
+                    </div>
+                  </div>
+
+            </div>
+            <div class="col mt-4">
+                <div class="d-flex justify-content-end">
+                <button (click)="crearInstructor()" type="button" class="btn btn-success ">GUARDAR</button>
+                </div>
+              </div>
+        </div>
+        <div class="card-footer text-center">
+            <div style="overflow-y:scroll; width:1000px; height:200px">
+                <table class="table table-bordered  table-striped  mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>No.</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO PATERNO</th>
+                            <th>APELLIDO MATERNO</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let instructores of arrregloinstructor">
+                            <td>{{instructores.idInstructor}}</td>
+                            <td>{{instructores.nombre}}</td>
+                            <td>{{instructores.apPaterno}}</td>
+                            <td>{{instructores.apMaterno}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Segundo Card para la creacion de un nuevo curso-->
+
+    <div class="card mt-4">
+        <div class="card-header text-center">PARA USO EXCLUSIVO DE LOS CDC'S</div>
+        <div class="card-body">
+            <h5 class="card-title text-center" style="font-size: larger;"> CREACION DE NUEVO CURSO</h5>
+            <div class="row">
+
+                <div class="col-md-2">
+                  <div class="form-floating mt-4">
+                    <input name="idcurso" [(ngModel)]="curso.idcurso" type="text" class="form-control" id="floatingInputidcurso" placeholder="name@example.com"   required >
+                    <label for="floatingInputidcurso">ID Curso</label>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="form-floating mt-4">
+                      <input name="nombrecurso" [(ngModel)]="curso.nombreCurso" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
+                      <label for="floatingInputNombre">Nombre Curso</label>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="col mt-4">
+                <div class="d-flex justify-content-end">
+                <button (click)="crearCurso()" type="button" class="btn btn-success ">GUARDAR</button>
+                </div>
+              </div>
+        </div>
+        <div class="card-footer ">
+            <div style="overflow-y:scroll; width:1000px; height:200px">
+                <table class="table table-bordered  table-striped  mt-3">
+                    <thead class="table-dark">
+                        <tr>
+                            <th >No.</th>
+                            <th>NOMBRE CURSO</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let liscursos of arreglocursos">
+                            <td>{{liscursos.idcurso}}</td>
+                            <td>{{liscursos.nombreCurso}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<br>

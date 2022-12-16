@@ -6,8 +6,10 @@ import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Cdcs } from 'src/app/modelo/cdcs';
 import { Curso } from 'src/app/modelo/curso';
+import { Instructor } from 'src/app/modelo/instructor';
 import { Trabajador } from 'src/app/modelo/trabajador';
 import { Trabajadorcurso } from 'src/app/modelo/trabajadorcurso';
+import { InstructorService } from 'src/app/servicios/instructor.service';
 import { TrabajadorService } from 'src/app/servicios/trabajador.service';
 import { TrabajadorcursoService } from 'src/app/servicios/trabajadorcurso.service';
 import swal from 'sweetalert2';
@@ -26,7 +28,9 @@ export class RegistroCdcComponent implements OnInit {
     cursoslista : Curso[];
     autoTrabajador = new FormControl('');
     cdcslista : Cdcs[];
-  constructor(public activateRouter: ActivatedRoute,public trabajadorservicio: TrabajadorService, public trabajadorcursoService:TrabajadorcursoService) { }
+    instructores = new Instructor();
+    arregloinstructor:Instructor[];
+  constructor(public activateRouter: ActivatedRoute,public trabajadorservicio: TrabajadorService, public trabajadorcursoService:TrabajadorcursoService, public instructorservicio:InstructorService) { }
 
   ngOnInit(): void {
     this.trabajadores = this.autoTrabajador.valueChanges.pipe(
@@ -39,6 +43,7 @@ export class RegistroCdcComponent implements OnInit {
     this.obtenerTrabajadorescu(0);
     this.obtenerListaCurso();
     this.obtenerListaCdcs();
+    this.obtenerListaInstructores();
   }
 
   cargarTrabajador(): void{
@@ -73,6 +78,12 @@ export class RegistroCdcComponent implements OnInit {
     );
   }
 
+  obtenerListaInstructores(){
+    this.instructorservicio.obtenerSelectIntructor().subscribe(
+      response => {this.arregloinstructor=response;
+      }
+    );
+  }
   public obtenerTrabajadorescu(page:number){
     this.trabajadorcursoService.obtenerListaTrabajadorescu(page).subscribe(
       response=>{

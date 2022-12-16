@@ -101,6 +101,7 @@
     <div class="row">
       <h5 class="card-title mt-3"> CURSO(s)</h5>
     </div>
+
     <div class="row">
       <div class="col-md-auto mt-4">
         <label for="selectCDC" class="col-form-label">Curso</label>
@@ -160,6 +161,18 @@
         </select>
       </div>
 
+    </div>
+    <div class="row">
+
+      <div class="col-md-auto mt-4">
+        <label for="selectCDC" class="col-form-label">INSTRUCTOR</label>
+      </div>
+      <div class="col-md-auto">
+        <select name="instructores" [(ngModel)]="trabacursos.idinstructor" class="form-select mt-4 " aria-label="Default select example">
+          <option [ngValue]="undefined"> Selecionar Instructor </option>
+          <option *ngFor="let instructor of arregloinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructores.apMaterno}}</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="card-footer text-center">

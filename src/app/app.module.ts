@@ -21,6 +21,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { AlertsComponent } from './alerts/alerts.component';
 import { AlertModule } from './alerts/alert/alert.module';
 import { ListaTalleresComponent } from './components/registro-general/registro_pasos/lista-talleres/lista-talleres.component';
+import { IntructorCursoComponent } from './components/registro-general/registro_pasos/intructor-curso/intructor-curso.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ListaTalleresComponent } from './components/registro-general/registro_p
     FormatoRegistroComponent,
     FormatoRegistroComponent,
     ListaTalleresComponent,
+    IntructorCursoComponent,
 
 
   ],
