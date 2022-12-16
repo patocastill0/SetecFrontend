@@ -72,6 +72,10 @@ export class TrabajadorService {
       })
     );
   }
+
+  actualizarTrabajador(trabajador:Trabajador):Observable<Trabajador>{
+    return this.httpClient.put<Trabajador>(`${this.baseURL}/${trabajador.curp}`,trabajador,{headers:this.agregarAuthorizationHeader()});
+  }
   obtenerTrabajador(id):Observable<Trabajador>{
     return this.httpClient.get<Trabajador>(`${this.baseURL}/${id}`);
   }
