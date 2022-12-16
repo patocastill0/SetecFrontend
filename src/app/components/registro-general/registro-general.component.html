@@ -104,7 +104,7 @@
     <div class="col-md-3">
       <select name="estadoCivil" [(ngModel)]="trabajador.estadoCivil" class="form-select mt-4 anchura" aria-label="Default select example" [ngClass]="estadocivil.invalid && (estadocivil.dirty || estadocivil.touched)?'invalid-contorno':'form-controll'" #estadocivil="ngModel" required>
         <option [ngValue]="undefined"> Estado Civil </option>
-        <option ngValue="1">Soltera</option>
+        <option ngValue=1>Soltera</option>
         <option ngValue="2">Casada</option>
         <option ngValue="3">Divorciada</option>
         <option ngValue="4">Viuda</option>
@@ -402,8 +402,11 @@
 
   <div class="row mt-3">
     <div class="col-md-2">
-      <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success">GUARDAR</button>
+      <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success" *ngIf="!idFound else elseBlock">GUARDAR</button>
     </div>
+    <ng-template #elseBlock>
+      <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success" >ACTUALIZAR</button>
+    </ng-template>
     <div class="col-auto">
       <button [routerLink]="['/clua',trabajador.curp]" type="button" class="btn btn-success">GENERAR CLUA</button>
     </div>
