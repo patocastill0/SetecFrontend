@@ -7,21 +7,21 @@
 
                 <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
+                      <input name="nombre" [(ngModel)]="instructor.nombre" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
                       <label for="floatingInputNombre">Nombre(s)</label>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input  type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com"   required>
+                      <input  name="apPaterno" [(ngModel)]="instructor.apPaterno" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com"   required>
                       <label for="floatingInputAp">Apellido Paterno</label>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input   type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com"  required>
+                      <input  name="apMaternop" [(ngModel)]="instructor.apMaterno" type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com"  required>
                       <label for="floatingInputAm">Apellido Materno</label>
                     </div>
                   </div>
@@ -29,7 +29,7 @@
             </div>
             <div class="col mt-4">
                 <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-success ">GUARDAR</button>
+                <button (click)="crearInstructor()" type="button" class="btn btn-success ">GUARDAR</button>
                 </div>
               </div>
         </div>
