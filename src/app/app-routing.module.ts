@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent} from 'src/app/login/login.component';
 import { RegistroGeneralComponent } from './components/registro-general/registro-general.component';
+import { DatosCdcComponent } from './components/registro-general/registro_pasos/datos-cdc/datos-cdc.component';
 import { FormatoRegistroComponent } from './components/registro-general/registro_pasos/formato-registro/formato-registro.component';
 import { IntructorCursoComponent } from './components/registro-general/registro_pasos/intructor-curso/intructor-curso.component';
 import { ListaTalleresComponent } from './components/registro-general/registro_pasos/lista-talleres/lista-talleres.component';
@@ -21,8 +22,8 @@ const routes: Routes = [
   {path:'cdc',component:RegistroCdcComponent,canActivate:[AuthGuard]},
   {path:'formatoregistro',component:FormatoRegistroComponent,canActivate:[AuthGuard]},
   {path:'listatalleres',component:ListaTalleresComponent,canActivate:[AuthGuard]},
-  {path:'instructorcurso',component:IntructorCursoComponent,canActivate:[AuthGuard]}
-
+  {path:'instructorcurso',component:IntructorCursoComponent,canActivate:[AuthGuard]},
+  {path: 'datoscurso',component:DatosCdcComponent,canActivate:[AuthGuard]}
 
 
 ];

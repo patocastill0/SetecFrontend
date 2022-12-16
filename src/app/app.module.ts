@@ -22,6 +22,7 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { AlertModule } from './alerts/alert/alert.module';
 import { ListaTalleresComponent } from './components/registro-general/registro_pasos/lista-talleres/lista-talleres.component';
 import { IntructorCursoComponent } from './components/registro-general/registro_pasos/intructor-curso/intructor-curso.component';
+import { DatosCdcComponent } from './components/registro-general/registro_pasos/datos-cdc/datos-cdc.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { IntructorCursoComponent } from './components/registro-general/registro_
     FormatoRegistroComponent,
     ListaTalleresComponent,
     IntructorCursoComponent,
+    DatosCdcComponent,
 
 
   ],
