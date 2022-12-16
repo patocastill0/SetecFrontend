@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Curso } from '../modelo/curso';
+import { Instructor } from '../modelo/instructor';
 import { Trabajadorcurso } from '../modelo/trabajadorcurso';
 import { AuthserviceService } from './authservice.service';
 
@@ -12,6 +13,7 @@ import { AuthserviceService } from './authservice.service';
 export class TrabajadorcursoService {
   private baseURL="http://localhost:8080/api/trabajador";
   private baseURLCU ="http://localhost:8080/api/trabajadorcurso";
+
 
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});
 

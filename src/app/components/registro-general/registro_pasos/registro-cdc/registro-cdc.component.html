@@ -168,11 +168,9 @@
         <label for="selectCDC" class="col-form-label">INSTRUCTOR</label>
       </div>
       <div class="col-md-auto">
-        <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select mt-4 " aria-label="Default select example">
+        <select name="instructores" [(ngModel)]="trabacursos.idinstructor" class="form-select mt-4 " aria-label="Default select example">
           <option [ngValue]="undefined"> Selecionar Instructor </option>
-          <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
-
-
+          <option *ngFor="let instructor of arregloinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructores.apMaterno}}</option>
         </select>
       </div>
     </div>

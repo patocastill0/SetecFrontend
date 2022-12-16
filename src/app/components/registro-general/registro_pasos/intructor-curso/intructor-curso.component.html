@@ -38,24 +38,20 @@
                 <table class="table table-bordered  table-striped  mt-3">
                     <thead class="table-dark">
                         <tr>
+                            <th>No.</th>
                             <th>NOMBRE</th>
                             <th>APELLIDO PATERNO</th>
                             <th>APELLIDO MATERNO</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Rodrigo</td>
-                            <td>Castillo</td>
-                            <td>Patolzin</td>
-
+                        <tr *ngFor="let instructores of arrregloinstructor">
+                            <td>{{instructores.idInstructor}}</td>
+                            <td>{{instructores.nombre}}</td>
+                            <td>{{instructores.apPaterno}}</td>
+                            <td>{{instructores.apMaterno}}</td>
                         </tr>
-                        <tr>
-                            <td>Rodrigo</td>
-                            <td>Castillo</td>
-                            <td>Patolzin</td>
 
-                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -71,18 +67,25 @@
             <h5 class="card-title text-center" style="font-size: larger;"> CREACION DE NUEVO CURSO</h5>
             <div class="row">
 
-                <div class="col-md-3">
+                <div class="col-md-2">
+                  <div class="form-floating mt-4">
+                    <input name="idcurso" [(ngModel)]="curso.idcurso" type="text" class="form-control" id="floatingInputidcurso" placeholder="name@example.com"   required >
+                    <label for="floatingInputidcurso">ID Curso</label>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
                     <div class="form-floating mt-4">
-                      <input type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
+                      <input name="nombrecurso" [(ngModel)]="curso.nombreCurso" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
                       <label for="floatingInputNombre">Nombre Curso</label>
                     </div>
-                  </div>
+                </div>
 
 
             </div>
             <div class="col mt-4">
                 <div class="d-flex justify-content-end">
-                <button type="button" class="btn btn-success ">GUARDAR</button>
+                <button (click)="crearCurso()" type="button" class="btn btn-success ">GUARDAR</button>
                 </div>
               </div>
         </div>
@@ -91,25 +94,24 @@
                 <table class="table table-bordered  table-striped  mt-3">
                     <thead class="table-dark">
                         <tr>
-                            <th [width]="5">No.</th>
+                            <th >No.</th>
                             <th>NOMBRE CURSO</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Rodrigo</td>
+                        <tr *ngFor="let liscursos of arreglocursos">
+                            <td>{{liscursos.idcurso}}</td>
+                            <td>{{liscursos.nombreCurso}}</td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Rodrigo</td>
-                        </tr>
+
                     </tbody>
                 </table>
+
             </div>
 
         </div>
     </div>
 
 </div>
+<br>

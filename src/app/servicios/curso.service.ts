@@ -1,17 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { Instructor } from '../modelo/instructor';
+import { Curso } from '../modelo/curso';
 import { AuthserviceService } from './authservice.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InstructorService {
-  private baseURL = "http://localhost:8080/api/instructor";
-
+export class CursoService {
+  private baseURL="http://localhost:8080/api/curso";
   private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});
+
 
   constructor(public httpCliente:HttpClient, public authservice:AuthserviceService) { }
 
@@ -23,8 +23,8 @@ export class InstructorService {
     return this.httpHeaders;
   }
 
-  crearInstructorServicio(instructor:Instructor):Observable<Instructor>{
-    return this.httpCliente.post<Instructor>(`${this.baseURL}`,instructor).pipe(
+  crearCursoServicio(curso:Curso){
+    return this.httpCliente.post<Curso>(`${this.baseURL}`,curso).pipe(
       catchError(e=>{
         if(e.status==302){
 
@@ -34,14 +34,12 @@ export class InstructorService {
     );
   }
 
-  obtenerListaInstructores(pageNo: number):Observable<any>{
+  obtenerListaCursos(pageNo: number){
     return this.httpCliente.get(`${this.baseURL}/page/${pageNo}`).pipe(
       map((response: any)=>{
         return response
       })
     );
   }
-  obtenerSelectIntructor():Observable<Instructor[]>{
-    return this.httpCliente.get<Instructor[]>(`${this.baseURL}/listinstructor`,{headers: this.agregarAuthorizationHeader()});
-  }
+
 }
