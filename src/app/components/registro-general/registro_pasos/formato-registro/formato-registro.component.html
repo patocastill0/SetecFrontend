@@ -29,23 +29,31 @@
   <div class="row">
       <p class="alineartexto">Por este medio, le solicito me autorice el ingreso a la Federación Revolucionaria de Obreros y Campecinos del Estado de Oaxaca CROC, comprometíendome desde este momento a respetar los estatutos, los acuerdos que emanen de las asambleas y/o en su caso las convocatorias a eventos politicos, sociales o culturales de la organizacion;  para lo cual proporciono la siguiente informacion y documentación.</p >
 
+        <div  class="col-md-auto mt-4 labelcard">
+          <label  class="col-form-label">FOLIO: </label>
+        </div>
+        <div class="col-md-1">
+          <div class="form-label mt-4">
+          <input name="buscarfolio" type="text"  class="form-control"  id="dateanio" placeholder="Folio" (keyup)="buscarfolio($event)">
+          </div>
+        </div>
         <h6>DATOS GENERALES </h6>
 
         <div class="col-md-3 text-center">
-            <input name="nombre"  type="text" class="form-control" id="floatingInputNombre" class="w3-input">
+            <input name="nombre" [(ngModel)]="trabajador.nombre"  type="text" class="form-control" id="floatingInputNombre" class="w3-input">
             <label for="floatingInputNombre" >Nombre(s)</label>
         </div>
 
 
 
         <div class="col-md-2 text-center">
-            <input name="ap"  type="text" class="form-control" id="floatingInputAp" class="w3-input">
+            <input name="ap" [(ngModel)]="trabajador.apPaterno"  type="text" class="form-control" id="floatingInputAp" class="w3-input">
             <label for="floatingInputAp">Apellido Paterno</label>
         </div>
 
         <div class="col-md-3 text-center">
 
-            <input name="am"  type="text" class="form-control" id="floatingInputAm" class="w3-input">
+            <input name="am" [(ngModel)]="trabajador.apMaterno" type="text" class="form-control" id="floatingInputAm" class="w3-input">
             <label for="floatingInputAm">Apellido Paterno</label>
 
         </div>
@@ -54,40 +62,40 @@
   <div class="row">
 
           <div class="col-md-3 mt-4 text-center">
-              <input name="Genero"  type="text" class="form-control" id="floatingInputGenero" class="w3-input">
+              <input name="Genero" [(ngModel)]="trabajador.genero" type="text" class="form-control" id="floatingInputGenero" class="w3-input">
               <label for="floatingInputGenero">Genero</label>
           </div>
 
           <div class="col-md-2 mt-4 text-center">
-              <input name="FechaNa"  type="text" class="form-control" id="floatingInputFechaNa" class="w3-input">
+              <input name="FechaNa" [(ngModel)]="trabajador.fechaNacimiento" type="text" class="form-control" id="floatingInputFechaNa" class="w3-input">
               <label for="floatingInputFechaNa">Fecha nacimiento</label>
           </div>
 
           <div class="col-md-3 mt-4 text-center">
-              <input name="Tiposanguineo"  type="text" class="form-control" id="floatingInputTiposa" class="w3-input">
+              <input name="Tiposanguineo" [(ngModel)]="trabajador.tipoSanguineo" type="text" class="form-control" id="floatingInputTiposa" class="w3-input">
               <label for="floatingInputTiposa">Tipo Sanguineo</label>
           </div>
 
           <div class="col-md-3 mt-4 text-center">
-              <input name="Estadocivil"  type="text" class="form-control" id="floatingInputEstadocivil" class="w3-input">
+              <input name="Estadocivil" [(ngModel)]="trabajador.estadoCivil" type="text" class="form-control" id="floatingInputEstadocivil" class="w3-input">
               <label for="floatingInputEstadocivil">Estado Civil</label>
           </div>
   </div>
 
 <div class="row">
     <div class = "col-md-3 mt-4 text-center">
-      <input name="ClaveElector"  type="text" class="form-control" id="ClaveElector" class="w3-input">
+      <input name="ClaveElector" [(ngModel)]="trabajador.claveElector" type="text" class="form-control" id="ClaveElector" class="w3-input">
       <label for="InputClua" class="form-label">Clave Elector</label>
     </div>
 
 
       <div class = "col-md-auto mt-4 text-center">
-        <input name="InputSeccion"  type="text" class="form-control" id="InputSeccion" class="w3-input">
+        <input name="InputSeccion" [(ngModel)]="trabajador.seccion" type="text" class="form-control" id="InputSeccion" class="w3-input">
         <label for="InputSeccion" class="form-label">Seccion</label>
       </div>
 
       <div class = "col-md-3 mt-4 text-center">
-        <input name="InputCurp"  type="text" class="form-control" id="InputCurp" class="w3-input">
+        <input name="InputCurp" [(ngModel)]="trabajador.curp" type="text" class="form-control" id="InputCurp" class="w3-input">
         <label for="InputCurp" class="form-label">CURP</label>
       </div>
 
@@ -98,15 +106,15 @@
     <h3 class="mt-5">DOMICILIO (ACTUAL) </h3>
 
     <div class="col-md-4">
-      <input name="InputCalle"  type="text"  id="InputCalle" class="w3-input" >
+      <input name="InputCalle" [(ngModel)]="trabajador.calle" type="text"  id="InputCalle" class="w3-input" >
     </div>
 
     <div class = "col-md-3">
-      <input name="InputNumero"  type="text"  id="InputNumero" class="w3-input">
+      <input name="InputNumero" [(ngModel)]="trabajador.numero" type="text"  id="InputNumero" class="w3-input">
     </div>
 
     <div class = "col-md-3">
-      <input name="InputColonia"  type="text" id="InputColonia" class="w3-input">
+      <input name="InputColonia" [(ngModel)]="trabajador.colonia" type="text" id="InputColonia" class="w3-input">
     </div>
 
 
@@ -129,15 +137,15 @@
   <div class="row">
 
       <div class = "col-md-3 mt-4">
-        <input name="InputCP"  type="text" id="InputCP" class="w3-inputsinlinea">
+        <input name="InputCP" [(ngModel)]="trabajador.cp" type="text" id="InputCP" class="w3-inputsinlinea">
       </div>
 
       <div class = "col-md-4 mt-4">
-        <input name="InputLocalidad"  type="text" class="w3-inputsinlinea" id="InputLocalidad">
+        <input name="InputLocalidad" [(ngModel)]="trabajador.localidad" type="text" class="w3-inputsinlinea" id="InputLocalidad">
       </div>
 
       <div class = "col-md-4 mt-4">
-        <input name="InputMunicipio"  type="text" class="w3-inputsinlinea" id="InputMunicipio">
+        <input name="InputMunicipio" [(ngModel)]="trabajador.municipio" type="text" class="w3-inputsinlinea" id="InputMunicipio">
       </div>
 
       <div class="col-md-12">
@@ -161,15 +169,15 @@
   <div class="row">
 
     <div class = "col-md-3 mt-4">
-      <input name="InputCelular"  type="text" class="w3-inputsinlinea" id="InputCelular">
+      <input name="InputCelular" [(ngModel)]="trabajador.celular"  type="text" class="w3-inputsinlinea" id="InputCelular">
     </div>
 
     <div class = "col-md-4 mt-4">
-      <input name="InputTealCasa"  type="text" class="w3-inputsinlinea" id="InputTealCasa">
+      <input name="InputTealCasa" [(ngModel)]="trabajador.telCasa" type="text" class="w3-inputsinlinea" id="InputTealCasa">
     </div>
 
     <div class = "col-md-4 mt-4">
-      <input name="InputCorreE"  type="text" class="w3-inputsinlinea" id="InputCorreE">
+      <input name="InputCorreE" [(ngModel)]="trabajador.correoElectronico" type="text" class="w3-inputsinlinea" id="InputCorreE">
     </div>
 
     <div class="col-md-12">
@@ -195,15 +203,15 @@
   <div class="row">
 
       <div class = "col-md-3 mt-4">
-          <input name="InputFacebook"  type="text" class="w3-inputsinlinea" id="InputFacebook">
+          <input name="InputFacebook" [(ngModel)]="trabajador.facebook" type="text" class="w3-inputsinlinea" id="InputFacebook">
       </div>
 
       <div class = "col-md-4 mt-4">
-        <input name="InputTwitter"  type="text" class="w3-inputsinlinea" id="InputTwitter">
+        <input name="InputTwitter" [(ngModel)]="trabajador.twitter" type="text" class="w3-inputsinlinea" id="InputTwitter">
       </div>
 
       <div class = "col-md-4 mt-4">
-        <input name="InputInstagram"  type="text" class="w3-inputsinlinea" id="InputInstagram">
+        <input name="InputInstagram" [(ngModel)]="trabajador.instagram" type="text" class="w3-inputsinlinea" id="InputInstagram">
       </div>
 
       <div class="col-md-12">
@@ -238,28 +246,28 @@
         <div class="row">
           <h3 style="margin: 0;">DOCUMENTOS ENTREGADOS</h3>
           <div class="col-md-auto ">
-            <input class="inputejem" type="checkbox" value="" id="checkacta">
+            <input name="actanacimiento" [checked]="trabajador.hasactanacimiento" class="inputejem" type="checkbox" value="" id="checkacta">
             <label class="labelejem" for="checkacta">
               ACTA DE NACIMIENTO
             </label>
           </div>
 
           <div class="col-md-auto form-check">
-            <input class="inputejem" type="checkbox" value="" id="checkdomicilio">
+            <input name="comprobantedomicilio" [checked]="trabajador.hascomprobante" class="inputejem" type="checkbox" value="" id="checkdomicilio">
             <label class="labelejem" for="checkdomicilio">
               COMPROBANTE DE DOMICILIO
             </label>
           </div>
 
           <div class="col-md-auto  form-check">
-            <input class="inputejem" type="checkbox" value="" id="checkcurp">
+            <input name="curp" [checked]="trabajador.hascurp" class="inputejem" type="checkbox" value="" id="checkcurp">
             <label class="labelejem" for="checkcurp">
               CURP
             </label>
           </div>
 
           <div class="col-md-auto  form-check">
-            <input class="inputejem" type="checkbox" value="" id="checkineife">
+            <input name="ine" [checked]="trabajador.hasine" class="inputejem" type="checkbox" value="" id="checkineife">
             <label class="labelejem" for="checkineife">
               INE/IFE
             </label>
@@ -274,23 +282,23 @@
 
           </div>
           <div class = "col-md-2 mt-4">
-            <input   type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
+            <input name="anioclua" [(ngModel)]="trabajador.anioclua"  type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
           </div>
           <div class = "col-md-2 mt-4">
-            <input  type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
+            <input name ="sector" [(ngModel)]="trabajador.sector" type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
           </div>
           <div class = "col-md-2 mt-4">
-            <input  type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
+            <input  name ="cargo" [(ngModel)]="trabajador.cargo" type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
           </div>
           <div class = "col-md-2 mt-4">
-            <input   type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
+            <input  name="municipio" [(ngModel)]="trabajador.municipio" type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
           </div>
           <div class = "col-md-2 mt-4">
-            <input   type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
+            <input  name="region" [(ngModel)]="trabajador.region" type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
           </div>
           <div class="form">
           <div class = "col-md-4 mt-4">
-            <input   type="text" class="form-control text-center" id="InputClua" placeholder="CLUA" data-bs-placement="bottom" title="Tooltip on top">
+            <input name="idclua" [(ngModel)]="trabajador.idclua" type="text" class="form-control text-center" id="InputClua" placeholder="CLUA" data-bs-placement="bottom" title="Tooltip on top">
           </div>
           </div>
         </div>

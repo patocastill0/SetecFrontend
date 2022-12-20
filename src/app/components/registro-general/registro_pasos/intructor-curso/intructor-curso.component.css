@@ -1,1 +1,4 @@
-
+.labelizquierda{
+  position: relative;
+  top: 35px; left: 10px;
+}

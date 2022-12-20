@@ -60,6 +60,13 @@
   </tbody>
 </table>
 
+<div class="container">
+  <app-paginadortrabajadores
+    *ngIf="paginador"
+    [paginador]="paginador"
+  ></app-paginadortrabajadores>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog" >
@@ -76,6 +83,7 @@
                 DATOS PERSONALES
               </div>
               <ul class="list-group list-group-flush" >
+                <li class="list-group-item">Folio: {{trabajador.folio}}</li>
                 <li class="list-group-item">Nombre: {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}</li>
                 <li class="list-group-item">Genero: {{trabajador.genero}}</li>
                 <li class="list-group-item">Fecha nacimiento: {{trabajador.fechaNacimiento}}</li>
@@ -98,6 +106,8 @@
                 <li class="list-group-item">Facebook: {{trabajador.facebook}}</li>
                 <li class="list-group-item">Instagram: {{trabajador.instagram}}</li>
                 <li class="list-group-item">Twitter: {{trabajador.twitter}}</li>
+                <li class="list-group-item">Municipio: {{trabajador.municipio}}</li>
+                <li class="list-group-item">Seccion: {{trabajador.seccion}}</li>
               </ul>
             </div>
           </div>

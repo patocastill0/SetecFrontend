@@ -10,5 +10,8 @@
 .anchuravigencia{
   width: 9.9rem !important;
 }
-
+.labelizquierda{
+  position: relative;
+  top: 10px; left: 10px;
+}
 

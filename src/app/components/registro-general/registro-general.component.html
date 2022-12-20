@@ -208,7 +208,7 @@
   <hr style="color: rgb(111, 204, 247); margin-top: 30px;" />
 
   <p>
-    <button class="btn btn-primary tamanoletra" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-primary " type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       Datos domicilio
     </button>
   </p>
@@ -406,7 +406,7 @@
       <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success" *ngIf="!idFound else elseBlock">GUARDAR</button>
     </div>
     <ng-template #elseBlock>
-      <button (click)= "crearTrabajador(trabajador)" type="button" class="btn btn-success" >ACTUALIZAR</button>
+      <button (click)= "actualizarTrabajador()" type="button" class="btn btn-success" >ACTUALIZAR</button>
     </ng-template>
     <div class="col-auto">
       <button [routerLink]="['/clua',trabajador.curp]" type="button" class="btn btn-success">GENERAR CLUA</button>

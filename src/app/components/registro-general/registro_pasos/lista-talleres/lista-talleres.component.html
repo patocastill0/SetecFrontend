@@ -9,9 +9,9 @@
                                 <label>INSTRUCTOR</label>
                             </div>
                             <div class="col-md-auto ">
-                                <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                                <select (click)="ObtenerConsultas(0,instructorcursovar.idinstructor,trabacursos.idcurso,trabajador.cdc,trabacursos.periodo,trabacursos.horaInicio)" name="curso" [(ngModel)]="instructorcursovar.idinstructor" class="form-select posdivinicio" aria-label="Default select example">
                                         <option [ngValue]="undefined"> [Selecionar Instructor] </option>
-                                        <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+                                        <option *ngFor="let instructor of arreinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructor.apMaterno}}</option>
                                 </select>
                             </div>
                     </div>
@@ -20,7 +20,7 @@
                             <label style="left: 300px;">PERIODO</label>
                         </div>
                         <div class="col-md-auto ">
-                            <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                            <select (click)="ObtenerConsultas(3,instructorcursovar.idinstructor,trabacursos.idcurso,trabajador.cdc,trabacursos.periodo,trabacursos.horaInicio)" name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
                                 <option [ngValue]="undefined" > Selecionar Periodo </option>
                                 <option ngValue="1">Enero-Marzo</option>
                                 <option ngValue="2">Abril-Junio</option>
@@ -41,7 +41,7 @@
                                 <label>CURSO</label>
                             </div>
                             <div class="col-md-auto ">
-                                <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
+                                <select (click)="ObtenerConsultas(1,instructorcursovar.idinstructor,trabacursos.idcurso,trabajador.cdc,trabacursos.periodo,trabacursos.horaInicio)" name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select posdivinicio" aria-label="Default select example">
                                         <option [ngValue]="undefined"> Selecionar Curso </option>
                                         <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
                                 </select>
@@ -52,12 +52,9 @@
                             <label style="left: 300px;">CENTRO DE DESARROLLO COMUNITARIO DE:</label>
                         </div>
                         <div class="col-md-auto ">
-                            <select name="periodo" [(ngModel)]="trabacursos.periodo" class="form-select" aria-label="Default select example">
+                            <select (click)="ObtenerConsultas(2,instructorcursovar.idinstructor,trabacursos.idcurso,trabajador.cdc,trabacursos.periodo,trabacursos.horaInicio)" name="cdc" [(ngModel)]="trabajador.cdc" class="form-select" aria-label="Default select example">
                                 <option [ngValue]="undefined" > Selecionar CDC </option>
-                                <option ngValue="1">Enero-Marzo</option>
-                                <option ngValue="2">Abril-Junio</option>
-                                <option ngValue="3">Verano</option>
-                                <option ngValue="4">Septiembre-Diciembre</option>
+                                <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.idCdcs">{{cdcs.nombreCdc}}</option>
                             </select>
                         </div>
                     </div>
@@ -95,21 +92,21 @@
                         <label class="labelejemp" for="selectanio">HORA INICIO</label>
                     </div>
                     <div class="col-md-auto">
-                        <select name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select posdivinicio " aria-label="Default select example">
+                        <select (click)="ObtenerConsultas(4,instructorcursovar.idinstructor,trabacursos.idcurso,trabajador.cdc,trabacursos.periodo,trabacursos.horaInicio)" name="horainicio" [(ngModel)]="trabacursos.horaInicio" class="form-select posdivinicio " aria-label="Default select example">
                           <option [ngValue]="undefined" > [Selecionar HORA] </option>
-                          <option ngValue="0708">07:00 a 08:00 hrs</option>
-                          <option ngValue="0809">08:00 a 09:00 hrs</option>
-                          <option ngValue="0910">09:00 a 10:00 hrs</option>
-                          <option ngValue="1011">10:00 a 11:00 hrs</option>
-                          <option ngValue="1112">11:00 a 12:00 hrs</option>
-                          <option ngValue="1213">12:00 a 13:00 hrs</option>
-                          <option ngValue="1314">13:00 a 14:00 hrs</option>
-                          <option ngValue="1415">14:00 a 15:00hrs</option>
-                          <option ngValue="1516">15:00 a 16:00hrs</option>
-                          <option ngValue="1617">16:00 a 17:00 hrs</option>
-                          <option ngValue="1718">17:00 a 18:00 hrs</option>
-                          <option ngValue="1819">18:00 a 19:00hrs</option>
-                          <option ngValue="1920">19:00 a 20:00hrs</option>
+                          <option ngValue="07">07:00 a 08:00 hrs</option>
+                          <option ngValue="08">08:00 a 09:00 hrs</option>
+                          <option ngValue="09">09:00 a 10:00 hrs</option>
+                          <option ngValue="10">10:00 a 11:00 hrs</option>
+                          <option ngValue="11">11:00 a 12:00 hrs</option>
+                          <option ngValue="12">12:00 a 13:00 hrs</option>
+                          <option ngValue="13">13:00 a 14:00 hrs</option>
+                          <option ngValue="14">14:00 a 15:00hrs</option>
+                          <option ngValue="15">15:00 a 16:00hrs</option>
+                          <option ngValue="16">16:00 a 17:00 hrs</option>
+                          <option ngValue="17">17:00 a 18:00 hrs</option>
+                          <option ngValue="18">18:00 a 19:00hrs</option>
+                          <option ngValue="19">19:00 a 20:00hrs</option>
                         </select>
                       </div>
                 </div>
@@ -137,34 +134,17 @@
           </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr *ngFor="let consulta of tablatrabajadorcurso">
                 <td>
-                    1
+                    {{contador}}
                 </td>
                 <td>
-                    00001
+                    {{consulta.folio}}
                 </td>
                 <td>
-                    CASTILLO PATOLZIN ROPDRIGO JAVIER
+                    {{consulta.nombreTrabajador}}
                 </td>
-                <td>
-                    {{1}} {{2}} {{3}} {{4}} {{5}}
-                </td>
-                <td>
-                    {{1}} {{2}} {{3}} {{4}} {{5}}
-                </td>
-                <td>
-                    {{1}} {{2}} {{3}} {{4}} {{5}}
-                </td>
-                <td>
-                    {{1}} {{2}} {{3}} {{4}} {{5}}
-                </td>
-                <td>
-                    {{1}} {{2}} {{3}} {{4}} {{5}}
-                </td>
-                <td>
-                    hola
-                </td>
+
             </tr>
 
         </tbody>

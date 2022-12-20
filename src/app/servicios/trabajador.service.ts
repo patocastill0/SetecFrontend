@@ -47,6 +47,10 @@ export class TrabajadorService {
     return this.httpClient.get<Trabajador>(`${this.baseURL}/${id}`,{headers:this.agregarAuthorizationHeader()});
   }
 
+  obtenerInfofolio(folio):Observable<Trabajador>{
+    return this.httpClient.get<Trabajador>(`${this.baseURL}/folio/${folio}`,{headers:this.agregarAuthorizationHeader()});
+  }
+
   obtenerListaSector():Observable<Sector[]>{
     return this.httpClient.get<Sector[]>(`${this.baseURL}/sector`);
   }

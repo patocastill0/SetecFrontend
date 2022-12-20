@@ -24,3 +24,11 @@ thead{
   width: 40%;
   margin-bottom: 1rem;
 }
+.labelizquierda{
+  position: relative;
+  top: 0px; left: 450px;
+}
+.labelcard{
+  position: relative;
+  top: 10px; left: 5px;
+}

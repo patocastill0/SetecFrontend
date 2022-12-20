@@ -53,4 +53,8 @@ export class TrabajadorcursoService {
       })
     )
   }
+
+  obtenerConsulta(numeroconsulta:number,idinstructor:number,idcurso:number,idcdc:number,periodo:string,horaInicio:string){
+    return this.httpClient.get<Trabajadorcurso[]>(`${this.baseURLCU}/consultas/${numeroconsulta}/${idinstructor}/${idcurso}/${idcdc}/${periodo}/${horaInicio}`,{headers: this.agregarAuthorizationHeader()});
+  }
 }

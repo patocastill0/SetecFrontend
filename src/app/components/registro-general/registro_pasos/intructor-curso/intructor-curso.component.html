@@ -74,12 +74,24 @@
                   </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-floating mt-4">
                       <input name="nombrecurso" [(ngModel)]="curso.nombreCurso" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
                       <label for="floatingInputNombre">Nombre Curso</label>
                     </div>
                 </div>
+
+
+                  <div class="col-md-auto labelizquierda">
+                      <label>INSTRUCTOR</label>
+                  </div>
+                  <div class="col-md-auto ">
+                    <select name="instructores" [(ngModel)]="instructorcursovar.idinstructor" class="form-select mt-4 " aria-label="Default select example">
+                      <option [ngValue]="undefined"> Selecionar Instructor </option>
+                      <option *ngFor="let instructor of arrregloinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructor.apMaterno}}</option>
+                    </select>
+                  </div>
+
 
 
             </div>

@@ -14,15 +14,26 @@ import swal from 'sweetalert2';
 })
 export class RegistroCluaComponent implements OnInit {
 
-  constructor(public activateRouter:ActivatedRoute,public trabajadorservicio:TrabajadorService, public cluaservicio:CluaService) { }
+  constructor(public activateRouter:ActivatedRoute,public trabajadorservicio:TrabajadorService, public cluaservicio:CluaService,
+    public activatedRoute:ActivatedRoute) { }
   trabajador:Trabajador ;
   clua = new Clua();
   cluacompleto = "";
   trabajadorcluas:Trabajadorclua[];
-
+  paginador:any;
+  pagina=0;
   ngOnInit(): void {
     this.cargarTrabajador();
-    this.ObtenerCluas(0);
+
+    this.activatedRoute.paramMap.subscribe(params=>{
+      let page:number=+params.get('page');
+      if(!page){
+        page=0;
+      }
+      this.pagina=page;
+      this.ObtenerCluas(page);
+     }
+     );
   }
 
   cargarTrabajador(): void{
@@ -58,6 +69,7 @@ export class RegistroCluaComponent implements OnInit {
     this.cluaservicio.obtenerListaCluas(page).subscribe(
       response=>{
         this.trabajadorcluas=response.contenido as Trabajadorclua[]
+        this.paginador=response;
       }
     )
   }

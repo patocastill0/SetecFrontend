@@ -39,7 +39,7 @@
     <div class="row">
       <div class="col-auto">
         <select name="estado" [(ngModel)]="clua.estado" class="form-select mt-4 " aria-label="Default select example">
-          <option selected > Estado </option>
+          <option [ngValue]="undefined" > [Selecione Estado] </option>
           <option ngValue="Vigente">Vigente</option>
           <option ngValue="No Vigente">No Vigente</option>
           <option ngValue="No Aplica">No Aplica</option>
@@ -48,7 +48,7 @@
 
       <div class="col-auto">
         <select name="vigencia" [(ngModel)]="clua.vigencia" class="form-select mt-4" aria-label="Default select example">
-          <option selected >Vigencia</option>
+          <option [ngValue]="undefined" >[Selecione Vigencia]</option>
           <option ngValue=1>Un año</option>
           <option ngValue=2>Dos años</option>
           <option ngValue=3>Tres años</option>
@@ -58,6 +58,11 @@
         </select>
       </div>
 
+      <div class="col-auto labelizquierda">
+        <div class="col-md-auto mt-4">
+          <label>Fecha Creacion</label>
+        </div>
+      </div>
       <div class="col-auto">
         <div class="form-label mt-4">
           <input name="fechaCreacion" [(ngModel)]="clua.fechaCreacion" type="date" class="form-control" id="floatingInputFecha">
@@ -123,4 +128,10 @@
     </tr>
   </tbody>
 </table>
-
+<div class="container">
+  <app-paginadorclua
+    *ngIf="paginador"
+    [paginador]="paginador"
+  ></app-paginadorclua>
+</div>
+<br>

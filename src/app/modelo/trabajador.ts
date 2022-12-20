@@ -13,4 +13,6 @@ export class Trabajador extends Persona {
   hascomprobante:boolean;
   hascurp:boolean;
   hasine:boolean;
+  anioclua:string;
+  idclua:string;
 }

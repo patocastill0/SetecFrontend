@@ -12,4 +12,5 @@ export class Trabajadorcurso {
     nombreTrabajador: string;
     cdc:number;
     idinstructor:number;
+    folio:number;
 }
