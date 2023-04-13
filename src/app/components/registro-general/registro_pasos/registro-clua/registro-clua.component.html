@@ -14,19 +14,19 @@
       </div>
 
       <div class = "col-md-2 mt-4">
-        <input (keyup)="onKeyUp($event)" name="anioafiliacion" [(ngModel)]="clua.anioafiliacion"  type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
+        <input (keyup)="onKeyUp($event)" name="anioafiliacion" [(ngModel)]="clua.anioAfiliacion"  type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
       </div>
       <div class = "col-md-2 mt-4">
-        <input name ="sector" [(ngModel)]="trabajador.sector" type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
+        <input name ="sector" [(ngModel)]="trabajador.sectorTrabajador" type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
       </div>
       <div class = "col-md-2 mt-4">
-        <input name ="cargo" [(ngModel)]="trabajador.cargo" type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
+        <input name ="cargo" [(ngModel)]="trabajador.cargoTrabajador" type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
       </div>
       <div class = "col-md-2 mt-4">
-        <input name="municipio" [(ngModel)]="trabajador.municipio"  type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
+        <input name="municipio" [(ngModel)]="trabajador.municipioTrabajador"  type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
       </div>
       <div class = "col-md-2 mt-4">
-        <input name="region" [(ngModel)]="trabajador.region"  type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
+        <input name="region" [(ngModel)]="trabajador.regionTrabajador"  type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
       </div>
       <div class="form">
       <div class = "col-md-4 mt-4">
@@ -38,7 +38,7 @@
   <div class="card-footer text-center">
     <div class="row">
       <div class="col-auto">
-        <select name="estado" [(ngModel)]="clua.estado" class="form-select mt-4 " aria-label="Default select example">
+        <select name="estado" [(ngModel)]="clua.estadoClua" class="form-select mt-4 " aria-label="Default select example">
           <option [ngValue]="undefined" > [Selecione Estado] </option>
           <option ngValue="Vigente">Vigente</option>
           <option ngValue="No Vigente">No Vigente</option>
@@ -47,7 +47,7 @@
       </div>
 
       <div class="col-auto">
-        <select name="vigencia" [(ngModel)]="clua.vigencia" class="form-select mt-4" aria-label="Default select example">
+        <select name="vigencia" [(ngModel)]="clua.vigenciaClua" class="form-select mt-4" aria-label="Default select example">
           <option [ngValue]="undefined" >[Selecione Vigencia]</option>
           <option ngValue=1>Un año</option>
           <option ngValue=2>Dos años</option>
@@ -65,7 +65,7 @@
       </div>
       <div class="col-auto">
         <div class="form-label mt-4">
-          <input name="fechaCreacion" [(ngModel)]="clua.fechaCreacion" type="date" class="form-control" id="floatingInputFecha">
+          <input name="fechaCreacion" [(ngModel)]="clua.fechaCreacionClua" type="date" class="form-control" id="floatingInputFecha">
         </div>
       </div>
 

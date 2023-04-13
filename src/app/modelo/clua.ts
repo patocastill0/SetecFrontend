@@ -1,10 +1,10 @@
 import { Trabajador } from "./trabajador";
 
 export class Clua {
-  idclua:string ;
-  estado:string ;
-  fechaCreacion:Date ;
-  vigencia:number ;
-  anioafiliacion:string ;
+  id:string ;
+  estadoClua:string ;
+  fechaCreacionClua:Date ;
+  vigenciaClua:number ;
+  anioAfiliacion:string ;
   trabajadordto:Trabajador;
 }

@@ -1,6 +1,6 @@
 export class Instructor {
-    idInstructor:number ;
-    nombre:string ;
-    apPaterno:string ;
-    apMaterno:string ;
+    id:number ;
+    nombreInstructor:string ;
+    apellidopaInstructor:string ;
+    apellidomaInstructor:string ;
 }

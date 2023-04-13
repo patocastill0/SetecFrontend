@@ -1,5 +1,5 @@
 
 export class Cargo {
-  idcargo:string;
+  id:string;
   nombreCargo:string;
 }

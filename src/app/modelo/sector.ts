@@ -1,5 +1,5 @@
 
 export class Sector {
-  idSector:String ;
+  id:number ;
   nombreSector:String ;
 }

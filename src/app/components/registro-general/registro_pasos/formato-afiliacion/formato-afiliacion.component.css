@@ -1,0 +1,105 @@
+.alineartexto{
+  text-align: justify;
+
+}
+
+.linea {
+  border-top: 1px solid black;
+  height: 2px;
+  max-width: auto;
+  padding: 0;
+  margin: 0px auto 0 auto;
+}
+
+.w3-inputsinlinea{
+  outline: none;
+
+  text-align: center;
+
+  display:block;
+  border:none;
+  width:100%
+}
+
+.w3-input{
+  outline: none;
+
+  text-align: center;
+
+  display:block;
+  border:none;
+  border-bottom:1px solid rgb(15, 15, 15);
+  width:100%
+}
+
+.labelejem{
+  display: block;
+  padding-left: 20px;
+
+}
+.inputejem {
+  width: 13px;
+  height: 13px;
+  padding: 0;
+  margin:0;
+
+  vertical-align: bottom;
+  position: relative;
+  top: 15px;
+  *overflow: hidden;
+}
+.textoinput{
+  outline: none;
+
+  text-align: center;
+
+  border:none;
+  border-bottom:1px solid rgb(15, 15, 15);
+  width:300px
+}
+.margentexto{
+  margin-top: 0px;
+}
+select {
+  cursor: pointer;
+  background: transparent;
+  border: 6px solid transparent;
+
+  height: 30px;
+  padding: 0px;
+  line-height: 0px;
+}
+.estiloslink{
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 13px;
+}
+.estiloslabel{
+  padding-right: 30px;
+  outline: none;
+
+  display:block;
+  border:none;
+  border-top: 1px solid rgb(15, 15, 15);
+  text-align: center;
+  font-size: medium;
+  max-width: 300px;
+}
+.estilotabla{
+    display: block;
+
+    width: 30px;
+    height: 30px;
+
+}
+.labelizquierda{
+  position: relative;
+  top: 0px; left: 770px;
+}
+.td{
+    border:transparent;
+
+border-radius:0% ;
+}
+
+

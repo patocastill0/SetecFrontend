@@ -1,4 +1,4 @@
 export class Cdcs {
-  idCdcs:number ;
+  id:number ;
   nombreCdc:String;
 }

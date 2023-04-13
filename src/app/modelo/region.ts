@@ -1,4 +1,4 @@
 export class Region {
-  claveRegion:String;
+  id:number;
   nombreRegion:String;
 }

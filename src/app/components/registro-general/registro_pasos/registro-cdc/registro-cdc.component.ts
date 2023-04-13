@@ -61,7 +61,7 @@ export class RegistroCdcComponent implements OnInit {
 
   creartrabajadorCurso(){
 
-    this.trabacursos.idtrabajador= this.trabajador.curp;
+    this.trabacursos.idtrabajador= this.trabajador.id;
     console.log(this.trabacursos);
     this.trabajadorcursoService.creartrabajadorcurso(this.trabacursos).subscribe(
       response => {
@@ -98,11 +98,11 @@ export class RegistroCdcComponent implements OnInit {
       return true;
     }
     console.log(o2+" obj 2")
-    return o1===null || o2===null || o1===undefined || o2===undefined? false:o1.curp===o2.curp;
+    return o1===null || o2===null || o1===undefined || o2===undefined? false:o1.id===o2.id;
   }
 
   mostrarDatosTrabajador(trabajador?: Trabajador): string | undefined {
-    return trabajador ? trabajador.nombre + " " + trabajador.apPaterno + " " +  trabajador.apMaterno : undefined;
+    return trabajador ? trabajador.nombreTrabajador + " " + trabajador.apellidopaTrabajador + " " +  trabajador.apellidomaTrabajador : undefined;
   }
 
   seleccionarTrabajador(event: MatAutocompleteSelectedEvent): void {
@@ -112,7 +112,7 @@ export class RegistroCdcComponent implements OnInit {
     event.option.focus();
     event.option.deselect();
 
-    this.trabajadorcursoService.obtenerCursoTrabajador(this.trabajador.curp).subscribe(
+    this.trabajadorcursoService.obtenerCursoTrabajador(this.trabajador.id).subscribe(
       response => this.arreglocursos = response
     );
  }

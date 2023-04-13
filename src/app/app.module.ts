@@ -25,6 +25,7 @@ import { IntructorCursoComponent } from './components/registro-general/registro_
 import { DatosCdcComponent } from './components/registro-general/registro_pasos/datos-cdc/datos-cdc.component';
 import { PaginadortrabajadoresComponent } from './components/paginadores/paginadortrabajadores/paginadortrabajadores.component';
 import { PaginadorcluaComponent } from './components/paginadores/paginadorclua/paginadorclua.component';
+import { FormatoAfiliacionComponent } from './components/registro-general/registro_pasos/formato-afiliacion/formato-afiliacion.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { PaginadorcluaComponent } from './components/paginadores/paginadorclua/p
     DatosCdcComponent,
     PaginadortrabajadoresComponent,
     PaginadorcluaComponent,
+    FormatoAfiliacionComponent,
 
 
   ],

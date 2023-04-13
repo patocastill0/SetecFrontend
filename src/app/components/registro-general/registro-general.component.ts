@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 import { Cargo } from 'src/app/modelo/cargo';
 import { Cdcs } from 'src/app/modelo/cdcs';
+import { Generotype } from 'src/app/modelo/generotype';
 import { Municipio } from 'src/app/modelo/municipio';
 import { Region } from 'src/app/modelo/region';
 import { Sector } from 'src/app/modelo/sector';
@@ -34,7 +35,9 @@ export class RegistroGeneralComponent implements OnInit {
   cdcslista : Cdcs[];
   autoMunicipio = new FormControl('');
   titulo: string;
-
+  generohombre : Generotype.MASCULINO;
+  generomujer : Generotype.FEMENINO;
+  fotoSeleccionada: File;
   constructor(public trabajadorServicio:TrabajadorService, public municipioServicio:MunicipioService,
     public activatedRouter:ActivatedRoute,
     public router:Router) {
@@ -75,16 +78,19 @@ export class RegistroGeneralComponent implements OnInit {
     console.log(trabajador);
     this.trabajadorServicio.crearTrabajador(trabajador).subscribe(
       response=> {this.trabajador=response;
-        swal('Trabajador Agregado',`Trabajador ${this.trabajador.nombre} ${this.trabajador.apPaterno} ${this.trabajador.apMaterno} creado con éxito`,'success');
+        this.trabajadorServicio.subirFoto(this.fotoSeleccionada,this.trabajador.id).subscribe();
+        swal('Trabajador Agregado',`Trabajador ${this.trabajador.nombreTrabajador} ${this.trabajador.apellidopaTrabajador} ${this.trabajador.apellidomaTrabajador} creado con éxito`,'success');
                 }
     );
   }
+
+
 
   public actualizarTrabajador():void{
     this.trabajadorServicio.actualizarTrabajador(this.trabajador).subscribe(trabajador=>{
       this.router.navigate(['/datos']);
 
-      swal('Trabajador Actualizado',`Trabajador ${this.trabajador.nombre}  ${this.trabajador.apPaterno} ${this.trabajador.apMaterno} actualizado con éxito`,'success');
+      swal('Trabajador Actualizado',`Trabajador ${this.trabajador.nombreTrabajador}  ${this.trabajador.apellidopaTrabajador} ${this.trabajador.apellidomaTrabajador} actualizado con éxito`,'success');
     });
   }
 
@@ -120,7 +126,7 @@ export class RegistroGeneralComponent implements OnInit {
           //</div>
         //</div>
   validarCorreo(){
-    let correo=this.trabajador.correoElectronico;
+    let correo=this.trabajador.correoElectronicoTrabajador;
     //console.log("nombre correo ",this.trabajador.correoElectronico);
 
     if(correo===undefined){
@@ -138,13 +144,14 @@ export class RegistroGeneralComponent implements OnInit {
   }
 
   mostrarDatosMunicipio(municipio?: Municipio): string | undefined {
-    return municipio ? municipio.clavemunicipio + " " + municipio.nombreMunicipio : undefined;
+    return municipio ? municipio.id + " " + municipio.nombreMunicipio : undefined;
   }
 
   seleccionarMunicipio(event: MatAutocompleteSelectedEvent): void {
 
     this.municipio = event.option.value as Municipio;
-    this.trabajador.municipio = this.municipio.clavemunicipio;
+    console.log(this.municipio);
+    this.trabajador.municipioTrabajador = this.municipio;
     //this.autoMunicipio.setValue('');
     event.option.focus();
     event.option.deselect();
@@ -155,5 +162,15 @@ export class RegistroGeneralComponent implements OnInit {
   const filterValue = value.toLowerCase();
 
   return this.municipioServicio.obtenerListaMunicipios(filterValue);
+}
+
+seleccionarFoto(event){
+  this.fotoSeleccionada = event.target.files[0];
+  console.log(this.fotoSeleccionada);
+  if(this.fotoSeleccionada.type.indexOf('image')<0){
+    //Error("Error al seleccionar Imagen: debe ser de tipo imagen",this.options);
+    this.fotoSeleccionada=null;
+  }
+
 }
 }

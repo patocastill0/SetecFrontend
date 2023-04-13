@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
 import { AlertService } from '../alerts/alert.service';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +36,7 @@ export class TrabajadorService {
     }
     return this.httpHeaders;
   }
+
   obtenerListaTrabajadores(pageNo: number):Observable<any> {
     return this.httpClient.get(`${this.baseURL}/page/${pageNo}`).pipe(
       map((response:any)=>{
@@ -66,8 +68,27 @@ export class TrabajadorService {
     return this.httpClient.get<Cdcs[]>(`${this.baseURL}/cdcs`)
   }
 
+  /**crearTrabajador(trabajador,archivo:File):Observable<Trabajador>{
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("trabajador",trabajador);
+    let httpHeaders = new HttpHeaders();
+    let token = this.authService.token;
+    if(token!=null){
+      httpHeaders=httpHeaders.append('Authorization','Bearer '+token)
+    }
+    return this.httpClient.post<Trabajador>(`${this.baseURL}`,formData,{headers:httpHeaders}).pipe(
+      catchError(e=>{
+        if(e.status==302){
+          this.alertService.error('YA EXISTE UNA CURP ASOCIADA', this.options);
+        }
+        return throwError(e);
+      })
+    );
+  }**/
+
   crearTrabajador(trabajador:Trabajador):Observable<Trabajador>{
-    return this.httpClient.post<Trabajador>(`${this.baseURL}`,trabajador).pipe(
+    return this.httpClient.post<Trabajador>(`${this.baseURL}`,trabajador,{headers:this.agregarAuthorizationHeader()}).pipe(
       catchError(e=>{
         if(e.status==302){
           this.alertService.error('YA EXISTE UNA CURP ASOCIADA', this.options);
@@ -77,8 +98,23 @@ export class TrabajadorService {
     );
   }
 
+  subirFoto(archivo:File,trabajador):Observable<Trabajador>{
+    let formData = new FormData();
+    formData.append("archivo",archivo);
+    formData.append("trabajador",trabajador);
+    let httpHeaders = new HttpHeaders();
+    let token = this.authService.token;
+    if(token!=null){
+      httpHeaders=httpHeaders.append('Authorization','Bearer '+token)
+    }
+    return this.httpClient.post<Trabajador>(`${this.baseURL}/guardarimagen`,formData,{headers:httpHeaders}).pipe(
+      map((response: any)=> response.trabajador as Trabajador)
+    );
+  }
+
+
   actualizarTrabajador(trabajador:Trabajador):Observable<Trabajador>{
-    return this.httpClient.put<Trabajador>(`${this.baseURL}/${trabajador.curp}`,trabajador,{headers:this.agregarAuthorizationHeader()});
+    return this.httpClient.put<Trabajador>(`${this.baseURL}/${trabajador.id}`,trabajador,{headers:this.agregarAuthorizationHeader()});
   }
   obtenerTrabajador(id):Observable<Trabajador>{
     return this.httpClient.get<Trabajador>(`${this.baseURL}/${id}`);

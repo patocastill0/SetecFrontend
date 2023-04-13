@@ -7,21 +7,21 @@
 
                 <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input name="nombre" [(ngModel)]="instructor.nombre" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
+                      <input name="nombre" [(ngModel)]="instructor.nombreInstructor" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com"   required >
                       <label for="floatingInputNombre">Nombre(s)</label>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input  name="apPaterno" [(ngModel)]="instructor.apPaterno" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com"   required>
+                      <input  name="apPaterno" [(ngModel)]="instructor.apellidopaInstructor" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com"   required>
                       <label for="floatingInputAp">Apellido Paterno</label>
                     </div>
                   </div>
 
                   <div class="col-md-3">
                     <div class="form-floating mt-4">
-                      <input  name="apMaternop" [(ngModel)]="instructor.apMaterno" type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com"  required>
+                      <input  name="apMaternop" [(ngModel)]="instructor.apellidomaInstructor" type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com"  required>
                       <label for="floatingInputAm">Apellido Materno</label>
                     </div>
                   </div>
@@ -46,10 +46,10 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let instructores of arrregloinstructor">
-                            <td>{{instructores.idInstructor}}</td>
-                            <td>{{instructores.nombre}}</td>
-                            <td>{{instructores.apPaterno}}</td>
-                            <td>{{instructores.apMaterno}}</td>
+                            <td>{{instructores.id}}</td>
+                            <td>{{instructores.nombreInstructor}}</td>
+                            <td>{{instructores.apellidopaInstructor}}</td>
+                            <td>{{instructores.apellidomaInstructor}}</td>
                         </tr>
 
                     </tbody>
@@ -69,7 +69,7 @@
 
                 <div class="col-md-2">
                   <div class="form-floating mt-4">
-                    <input name="idcurso" [(ngModel)]="curso.idcurso" type="text" class="form-control" id="floatingInputidcurso" placeholder="name@example.com"   required >
+                    <input name="idcurso" [(ngModel)]="curso.id" type="text" class="form-control" id="floatingInputidcurso" placeholder="name@example.com"   required >
                     <label for="floatingInputidcurso">ID Curso</label>
                   </div>
                 </div>
@@ -88,7 +88,7 @@
                   <div class="col-md-auto ">
                     <select name="instructores" [(ngModel)]="instructorcursovar.idinstructor" class="form-select mt-4 " aria-label="Default select example">
                       <option [ngValue]="undefined"> Selecionar Instructor </option>
-                      <option *ngFor="let instructor of arrregloinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructor.apMaterno}}</option>
+                      <option *ngFor="let instructor of arrregloinstructor" [ngValue]="instructor.id">{{instructor.nombreInstructor}} {{instructor.apellidopaInstructor}} {{instructor.apellidomaInstructor}}</option>
                     </select>
                   </div>
 
@@ -113,7 +113,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let liscursos of arreglocursos">
-                            <td>{{liscursos.idcurso}}</td>
+                            <td>{{liscursos.id}}</td>
                             <td>{{liscursos.nombreCurso}}</td>
                         </tr>
 

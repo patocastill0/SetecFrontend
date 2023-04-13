@@ -13,16 +13,16 @@
   <tbody>
     <tr *ngFor="let trabajador of trabajadores">
       <td>
-        {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}
+        {{trabajador.nombreTrabajador}} {{trabajador.apellidopaTrabajador}} {{trabajador.apellidomaTrabajador}}
       </td>
       <td>
-        {{trabajador.claveElector}}
+        {{trabajador.claveElectorTrabajador}}
       </td>
       <td>
-        {{trabajador.seccion}}
+        {{trabajador.seccionTrabajador}}
       </td>
       <td>
-        {{trabajador.curp}}
+        {{trabajador.id}}
       </td>
       <td>
         <button
@@ -30,7 +30,7 @@
           name="detalles"
           class="btn btn-primary btn-sm"
           data-bs-toggle="modal" data-bs-target="#staticBackdrop"
-          (click)="obtenerInfoTrabajador(trabajador.curp)"
+          (click)="obtenerInfoTrabajador(trabajador.id)"
         >detalles
         </button>
       </td>
@@ -40,7 +40,7 @@
               <button
                 type="button"
                 name="editar"
-                [routerLink]="['/registro',trabajador.curp]"
+                [routerLink]="['/registro',trabajador.id]"
                 class="btn btn-primary btn-sm">
                 <i class="bi bi-pencil"></i>
               </button>
@@ -83,14 +83,14 @@
                 DATOS PERSONALES
               </div>
               <ul class="list-group list-group-flush" >
-                <li class="list-group-item">Folio: {{trabajador.folio}}</li>
-                <li class="list-group-item">Nombre: {{trabajador.nombre}} {{trabajador.apPaterno}} {{trabajador.apMaterno}}</li>
-                <li class="list-group-item">Genero: {{trabajador.genero}}</li>
-                <li class="list-group-item">Fecha nacimiento: {{trabajador.fechaNacimiento}}</li>
-                <li class="list-group-item">Estado civil: {{trabajador.estadoCivil}}</li>
-                <li class="list-group-item">Tipo Sanguineo: {{trabajador.tipoSanguineo}}</li>
-                <li class="list-group-item">Curp: {{trabajador.curp}}</li>
-                <li class="list-group-item">Direccion: {{trabajador.calle}} #{{trabajador.numero}} {{trabajador.colonia}}</li>
+                <li class="list-group-item">Folio: {{trabajador.folioTrabajador}}</li>
+                <li class="list-group-item">Nombre: {{trabajador.nombreTrabajador}} {{trabajador.apellidopaTrabajador}} {{trabajador.apellidomaTrabajador}}</li>
+                <li class="list-group-item">Genero: {{trabajador.generoTrabajador}}</li>
+                <li class="list-group-item">Fecha nacimiento: {{trabajador.fechanaTrabajador}}</li>
+                <li class="list-group-item">Estado civil: {{trabajador.estadoCivilTrabajador}}</li>
+                <li class="list-group-item">Tipo Sanguineo: {{trabajador.tipoSanguineoTrabajador}}</li>
+                <li class="list-group-item">Curp: {{trabajador.id}}</li>
+                <li class="list-group-item">Direccion: {{trabajador.calleTrabajador}} #{{trabajador.numeroCalle}} {{trabajador.coloniaTrabajador}}</li>
               </ul>
             </div>
           </div>
@@ -100,14 +100,14 @@
                 DATOS GENERALES
               </div>
               <ul class="list-group list-group-flush" >
-                <li class="list-group-item">Celular: {{trabajador.celular}}</li>
-                <li class="list-group-item">Tel. Casa: {{trabajador.telCasa}}</li>
-                <li class="list-group-item">Correo: {{trabajador.correoElectronico}}</li>
-                <li class="list-group-item">Facebook: {{trabajador.facebook}}</li>
-                <li class="list-group-item">Instagram: {{trabajador.instagram}}</li>
-                <li class="list-group-item">Twitter: {{trabajador.twitter}}</li>
-                <li class="list-group-item">Municipio: {{trabajador.municipio}}</li>
-                <li class="list-group-item">Seccion: {{trabajador.seccion}}</li>
+                <li class="list-group-item">Celular: {{trabajador.telcelularTrabajador}}</li>
+                <li class="list-group-item">Tel. Casa: {{trabajador.telcasaTrabajador}}</li>
+                <li class="list-group-item">Correo: {{trabajador.correoElectronicoTrabajador}}</li>
+                <li class="list-group-item">Facebook: {{trabajador.facebookTrabajador}}</li>
+                <li class="list-group-item">Instagram: {{trabajador.instagramTrabajador}}</li>
+                <li class="list-group-item">Twitter: {{trabajador.twitterTrabajador}}</li>
+                <li class="list-group-item">Municipio: {{trabajador.municipioTrabajador}}</li>
+                <li class="list-group-item">Seccion: {{trabajador.seccionTrabajador}}</li>
               </ul>
             </div>
           </div>

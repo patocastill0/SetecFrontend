@@ -1,4 +1,13 @@
 export class Curso {
-   idcurso: number;
+   id: number;
    nombreCurso:string;
+   cdcCurso: String;
+   estatusCurso: boolean;
+   periodoCurso: String;
+   codigoCruso: String;
+   anioCurso: number;
+   horaInicioCurso: String;
+   horaFinCurso: String;
+   tamanioCurso: number;
+
 }

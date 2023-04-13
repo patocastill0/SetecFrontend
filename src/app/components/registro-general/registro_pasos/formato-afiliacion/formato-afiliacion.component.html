@@ -1,33 +1,71 @@
 
-  <div class="row justify-content-between">
+  <div class="row mt-5">
 
-    <div class="col-md-auto mt-4">
+    <div class="col-md-4">
       <img
-        src="assets/croc.png"
-        class="rounded"
-        style="height: 120px; width: 200px"
+        src="assets/conlabor-oaxaca.png "
+        class="rounded border-dark"
+        style="height: 159px; width: 315px"
       />
-      <h3 class="pt-5 m-0" >LIC. DAVID AGUILAR ROBLES</h3>
-      <h3>Secretario General de la CROC Oaxaca.</h3>
     </div>
 
-    <div class="col-md-auto mt-4 text-center">
-      <h2>CONFEDERACION REVOLUCIONARIA</h2>
-      <h3>DE OBREROS Y CAMPESINOS</h3>
-      <h4>DEL ESTADO DE OAXACA</h4>
+
+    <div class="col-md-4 text-center">
+      <h1>CONSEJO NACIONAL LABORAL</h1>
+      <h2>CONLABOR-OAXACA</h2>
+      <h4 class="pt-3">CEDULA DE REGISTRO Y AFILIACION</h4>
     </div>
 
-    <div class="col-md-2 mt-4">
+    <div class="col-md-4 ">
       <img
         src="assets/perfil.jpg"
         class="rounded "
         style="height: auto; width: 210px"
       />
     </div>
+    <h3 class="pt-1 m-0" >C. DAVID ENRIQUE AGUILAR HERNANDEZ</h3>
+    <h3>Secretario General.</h3>
+
   </div>
 
   <div class="row">
-      <p class="alineartexto">Por este medio, le solicito me autorice el ingreso a la Federación Revolucionaria de Obreros y Campecinos del Estado de Oaxaca CROC, comprometíendome desde este momento a respetar los estatutos, los acuerdos que emanen de las asambleas y/o en su caso las convocatorias a eventos politicos, sociales o culturales de la organizacion;  para lo cual proporciono la siguiente informacion y documentación.</p >
+      <div class="col-md-12 ">
+        <p class="m-lg-0">CONCIENDO LAS TENDENCIAS Y FINALIDADES QUE PERSIGUE EL:</p>
+        <p *ngIf="seleccionado==1" style="font-weight: bold;" class="m-lg-0">SINDICATO DE TRABAJADORES DE LA INDUSTRIA DE LA CONSTRUCCION, AUTOTRANSPORTES, ESPECIALIZADOS, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA. REGISTRO SINDICAL 574   <span><a class="estiloslink" (click)="cambiarestado()">Editar</a></span></p>
+        <p *ngIf="seleccionado==2" style="font-weight: bold;" class="m-lg-0">SINDICATO DE TRABAJADORES DE COMERCIOS, HOTELES, RESTAURANTES, BARES, ESPECTACULOS, DE LA MUSICA, DEL CANTO, DE LAS ARTES, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA. REGISTRO SINDICAL 573   <span><a class="estiloslink" (click)="cambiarestado()">Editar</a></span></p>
+        <p *ngIf="seleccionado==3" style="font-weight: bold;" class="m-lg-0">SINDICATO DE TRABAJADORES DE LA INSDUSTRIA, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA.  REGISTRO SINDICAL 195.<span><a class="estiloslink" (click)="cambiarestado()">Editar</a></span></p>
+
+        <select *ngIf="!seleccionado" (click)="mostrarvalor()" name="seleccionado" [(ngModel)]="seleccionado" class="col-lg-12 ">
+            <option [ngValue]=0> [Selecionar Sindicato] </option>
+            <option [ngValue]=1>SINDICATO DE TRABAJADORES DE LA INDUSTRIA DE LA CONSTRUCCION, AUTOTRANSPORTES, ESPECIALIZADOS, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA. REGISTRO SINDICAL 574</option>
+            <option [ngValue]=2>SINDICATO DE TRABAJADORES DE COMERCIOS, HOTELES, RESTAURANTES, BARES, ESPECTACULOS, DE LA MUSICA, DEL CANTO, DE LAS ARTES, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA. REGISTRO SINDICAL 573</option>
+            <option [ngValue]=3>SINDICATO DE TRABAJADORES DE LA INSDUSTRIA, CONEXOS Y SIMILARES DEL ESTADO DE OAXACA.  REGISTRO SINDICAL 195.</option>
+          </select>
+
+        <p class="m-lg-0">QUE USTED REPRESENTA. LE SOLICITO LA ADMISION Y ADHESION A ESTE SINDICATO COMO SOCIO ACTIVO, MANIFESTANDO DESDE ESTE MOMENTO QUE SOY TRABAJADOR ACTIVO DE LA FUENTE DE TRABAJO DENOMINADA: <input name="nombreempresa" [(ngModel)]="nombreempresa" type="text" class="textoinput">. CON DOMICILIO EN <input name="domicilioempresa" [(ngModel)]="domicilioempresa" type="text" class="textoinput">.</p>
+
+
+        <p>Y MANIFIESTO EN ESTE ACTO QUE ESTOY DISPUESTO A CUMPLIR CON TODOS LOS REQUISITOS QUE SEAN NECESARIOS PARA QUE SEA ACEPTADA MI SOLICITUD, ASI COMO DAR CUMPLIMIENTO A TODAS LAS DISPOSICIONES LEGALES QUE EMANEN DE LAS ASAMBLEAS
+          Y DEMAS DETERMINACIONES QUE SE ENCUENTREN ESTABLECIDAS EN LOS ESTATUTOS QUE RIGEN LA VIDA INTERNA DEL SINDICATO EN MENCION, Y QUE ES MI VOLUNTAD HACER EL PAGO QUE CORRESPONDE AL
+          <span *ngIf="seleccionadopago!='0'" >{{seleccionadopago}} <span><a class="estiloslink" (click)="cambiarestadopago()">Editar</a></span> </span>
+          <select *ngIf="seleccionadopago=='0'" name="seleccionadopago" [(ngModel)]="seleccionadopago" class="col-md-auto">
+            <option value='0'>[Selecionar Pago]</option>
+            <option value='0.00'>0.00</option>
+            <option value='0.50'>0.50</option>
+            <option value='1.00'>1.00</option>
+            <option value='1.50'>1.50</option>
+            <option value='2.00'>2.00</option>
+            <option value='2.50'>2.50</option>
+            <option value='3.00'>3.00</option>
+          </select>
+          POR CIENTO DE MI SALARIO
+          QUINCENAL POR CONCEPTO DE PAGO DE CUOTAS SINDICALES, POR LO QUE AUTORIZO A MI PATRON PAA QUE REALICE EL DESCUENTO RESPECTIVO, ASI TAMBIEN AUTORIZO EL USO DE MI CORREO ELECTRONICO Y REDES SOCIALES PARA QUE CONLABOR OAXACA
+          Y EL SINDICATO ME ENVIEN LA INFORMACION RELATIVA A CAPACITACIONES Y/O PROMOCIONES PARA LO CUAL PROPORCIONO LA SIGUIENTE INFORMACION Y DOCUMENTACION.
+        </p>
+
+
+
+      </div>
 
         <div  class="col-md-auto mt-4 labelcard">
           <label  class="col-form-label">FOLIO: </label>
@@ -54,7 +92,7 @@
         <div class="col-md-3 text-center">
 
             <input name="am" [(ngModel)]="trabajador.apellidomaTrabajador" type="text" class="form-control" id="floatingInputAm" class="w3-input">
-            <label for="floatingInputAm">Apellido Paterno</label>
+            <label for="floatingInputAm">Apellido Materno</label>
 
         </div>
   </div>
@@ -281,26 +319,26 @@
             <label for="InputClua" class="form-label">CLUA</label>
 
           </div>
-          <div class = "col-md-2 mt-4">
+          <div class = "col-md-1 mt-4">
             <input name="anioclua" [(ngModel)]="trabajador.anioclua"  type="text" class="form-control " id="InputAnio" placeholder="Año Afiliacion" data-bs-placement="bottom" title="Ingrese los dos ultimos digitos del año (Ej. 2001 => 01">
           </div>
-          <div class = "col-md-2 mt-4">
+          <div class = "col-md-1 mt-4">
             <input name ="sector" [(ngModel)]="trabajador.sectorTrabajador" type="text" class="form-control " id="InputSector" placeholder="SECTOR" data-bs-placement="bottom" title="Tooltip on top">
           </div>
-          <div class = "col-md-2 mt-4">
+          <div class = "col-md-1 mt-4">
             <input  name ="cargo" [(ngModel)]="trabajador.cargoTrabajador" type="text" class="form-control  " id="InputCargo" placeholder="CARGO" data-bs-placement="bottom" title="Tooltip on top">
           </div>
-          <div class = "col-md-2 mt-4">
+          <div class = "col-md-1 mt-4">
             <input  name="municipio" [(ngModel)]="trabajador.municipioTrabajador" type="text" class="form-control  " id="InputMunicipio" placeholder="CLAVE MUNICIPIO" data-bs-placement="bottom" title="Tooltip on top">
           </div>
-          <div class = "col-md-2 mt-4">
+          <div class = "col-md-1 mt-4">
             <input  name="region" [(ngModel)]="trabajador.regionTrabajador" type="text" class="form-control  " id="InputRegion" placeholder="REGION" data-bs-placement="bottom" title="Tooltip on top">
           </div>
-          <div class="form">
-          <div class = "col-md-4 mt-4">
+
+          <div class = "col-md-3 mt-4">
             <input name="idclua" [(ngModel)]="trabajador.idclua" type="text" class="form-control text-center" id="InputClua" placeholder="CLUA" data-bs-placement="bottom" title="Tooltip on top">
           </div>
-          </div>
+
         </div>
       </div>
     </div>
@@ -308,60 +346,78 @@
 
   <div class="row">
     <div class="col-md mt-4">
-      <p>Por todo lo anterior, pido mi afiliación a la CROC Oaxaca y en su caso la credencial con fotografía que acredite mi pertenencia a la organización, además autorizo a CROC Oaxaca el utilizar mis datos personales para los fines antes establecidos en el aviso de privacidad, así como enviar propaganda y publicidad</p>
+      <p>POR LO ANTERIOR SOLICITO SE ME EXPIDA LA CREDENCIAL CORRESPONDIENTE CON FOTOGRAFIA QUE ACREDITE MI AFILIACION A ESTA ORGANIZACION SINDICAL.</p>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md mt-3">
+  <div class="row ">
+    <div class="d-flex justify-content-between">
+
+      <div class="col-md-auto mt-3 labelizquierda">
+        <label for="InputFecha" class="form-label">FECHA: </label>
+      </div>
+
+      <div class="col-md-3 mt-3 text-center">
+        <table class="table table-bordered" >
+          <thead>
+            <tr >
+              <th >{{date | date : 'dd'}}</th>
+              <th >{{date | date : 'M'}}</th>
+              <th >{{date | date : 'yyy'}}</th>
+            </tr>
+          </thead>
+          <tbody >
+            <tr class="td" >
+              <td >Dia</td>
+              <td >Mes</td>
+              <td >Año</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!--
+    <div class="col-md-auto mt-3">
       <label for="InputFecha" class="form-label">FECHA: </label>
-      {{date | date : "shortDate"}}
+
     </div>
+    <div class="col-md-auto mt-3">
+      <label for="InputFecha" class="form-label">{{date | date : 'M'}}</label>
+    </div>
+    -->
   </div>
-  <div class="row">
-    <div class="row align-items-start">
-      <div class="row align-items-center">
-        <div class="col">
-          Solicito
-        </div>
-        <div class="col">
-          Valido
-        </div>
-        <div class="col">
-          Autorizo
-        </div>
+
+    <div class="row">
+
+      <div class="col-md-4">
+        <p>Valido</p>
+      </div>
+
+          <div class="col-md-4">
+            <p>Solicito</p>
+          </div>
+          <div class="col-md-4">
+            <p>Autorizo</p>
+          </div>
+
+    </div>
+
+    <div class="row ">
+
+      <div class = "col-md-4 mt-4 text-center">
+        <input type="text" class="form-control"  class="w3-input">
+        <label  class="form-label">C.José Manuel Gil Aquino <br> Secretario Técnico </label>
+      </div>
+
+      <div class = "col-md-4 mt-4 text-center">
+        <input type="text" class="form-control"  class="w3-input">
+        <label  class="form-label">Firma del solicitante</label>
+      </div>
+
+      <div class = "col-md-4 mt-4 text-center">
+        <input type="text" class="form-control"  class="w3-input">
+        <label  class="form-label">C.David Enrique Aguilar Hernandez <br>Secretario General</label>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="row align-items-start">
-      <div class="row align-items-center">
-
-        <div class="col mt-5">
-
-          <h6>Firma del Afiliado</h6>
-        </div>
-        <div class="col text-center">
-          <img
-              src="assets/Imagen1.png"
-              class="rounded float-left"
-              style="height: auto; width: 200px"
-            />
-            <h6>Mtro. José Manuel Gil Aquino</h6>
-            <h6 >Secretario Técnico</h6>
-        </div>
-        <div class="col text-center">
-          <img
-              src="assets/Imagen2.png"
-              class="rounded float-left"
-              style="height: auto; width: 200px"
-            />
-            <h6>Lic. David Aguilar Robles</h6>
-            <h6>Secretario General</h6>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-4 text-center">
-    <p>CERAF 2018   AVISO DE PRIVACIDAD VIGENTE.  Para mayor información consulte nuestra pagina de internet www.crocoaxaca.org.mx</p>
-  </div>

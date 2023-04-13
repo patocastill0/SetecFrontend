@@ -33,7 +33,7 @@ export class IntructorCursoComponent implements OnInit {
   crearInstructor(){
     this.instructorservicio.crearInstructorServicio(this.instructor).subscribe(
       response =>{ this.instructor = response;
-        swal('Instructor creado',`Instructor ${this.instructor.nombre} ${this.instructor.apPaterno} ${this.instructor.apMaterno} creado con exito`,'success');
+        swal('Instructor creado',`Instructor ${this.instructor.nombreInstructor} ${this.instructor.apellidopaInstructor} ${this.instructor.apellidomaInstructor} creado con exito`,'success');
       }
     )
   }
@@ -48,7 +48,7 @@ export class IntructorCursoComponent implements OnInit {
 
 
   crearCurso(){
-    this.instructorcursovar.idcurso=this.curso.idcurso;
+    this.instructorcursovar.idcurso=this.curso.id;
     //this.instructorcursovar.idinstructor=this.instructor.idInstructor;
     this.instructorcurso.crearInstructorCursoServicio(this.instructorcursovar).subscribe(
 

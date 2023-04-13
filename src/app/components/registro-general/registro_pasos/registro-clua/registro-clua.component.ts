@@ -61,8 +61,8 @@ export class RegistroCluaComponent implements OnInit {
     )
   }
   onKeyUp(event){
-    this.cluacompleto= this.clua.anioafiliacion +""+ this.trabajador.sector +""+ this.trabajador.cargo +""+
-      this.trabajador.municipio+""+this.trabajador.region+""+this.trabajador.folio
+    this.cluacompleto= this.clua.anioAfiliacion +""+ this.trabajador.sectorTrabajador +""+ this.trabajador.cargoTrabajador +""+
+      this.trabajador.municipioTrabajador+""+this.trabajador.regionTrabajador+""+this.trabajador.folioTrabajador
 
   }
   ObtenerCluas(page:number){

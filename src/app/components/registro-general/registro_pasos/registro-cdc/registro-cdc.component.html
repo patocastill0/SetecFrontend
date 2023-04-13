@@ -61,7 +61,7 @@
       <div class="col-md-2">
         <select name="cdc"  [(ngModel)]="trabacursos.cdc" class="form-select mt-4 " aria-label="Default select example">
           <option [ngValue]="undefined" > Selecionar CDC </option>
-          <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.idCdcs">{{cdcs.nombreCdc}}</option>
+          <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.id">{{cdcs.nombreCdc}}</option>
         </select>
       </div>
 
@@ -109,7 +109,7 @@
       <div class="col-md-auto">
         <select name="curso" [(ngModel)]="trabacursos.idcurso" class="form-select mt-4 " aria-label="Default select example">
           <option [ngValue]="undefined"> Selecionar Curso </option>
-          <option *ngFor="let curso of cursoslista" [ngValue]="curso.idcurso">{{curso.nombreCurso}}</option>
+          <option *ngFor="let curso of cursoslista" [ngValue]="curso.id">{{curso.nombreCurso}}</option>
 
 
         </select>
@@ -170,7 +170,7 @@
       <div class="col-md-auto">
         <select name="instructores" [(ngModel)]="trabacursos.idinstructor" class="form-select mt-4 " aria-label="Default select example">
           <option [ngValue]="undefined"> Selecionar Instructor </option>
-          <option *ngFor="let instructor of arregloinstructor" [ngValue]="instructor.idInstructor">{{instructor.nombre}} {{instructor.apPaterno}} {{instructores.apMaterno}}</option>
+          <option *ngFor="let instructor of arregloinstructor" [ngValue]="instructor.id">{{instructor.nombreInstructor}} {{instructor.apellidopaInstructor}} {{instructores.apellidomaInstructor}}</option>
         </select>
       </div>
     </div>

@@ -3,14 +3,14 @@
   <div class="row">
   <div class="col-md-3">
     <div class="form-floating mt-2">
-      <input name="folio" [(ngModel)]="trabajador.folio" type="text" class="form-control" id="floatingInputFolio" placeholder="name@example.com">
+      <input name="folio" [(ngModel)]="trabajador.folioTrabajador" type="text" class="form-control" id="floatingInputFolio" placeholder="name@example.com">
       <label for="floatingInputFolio">No. Folio</label>
     </div>
   </div>
   <div class="col-md-3" >
-    <select name="sector" [(ngModel)]="trabajador.sector" class="form-select mt-2" aria-label="Default select example" [ngClass]="sector.invalid && (sector.dirty || sector.touched)?'invalid-contorno':'form-controll'" #sector="ngModel" required>
+    <select name="sector" [(ngModel)]="trabajador.sectorTrabajador" class="form-select mt-2" aria-label="Default select example" [ngClass]="sector.invalid && (sector.dirty || sector.touched)?'invalid-contorno':'form-controll'" #sector="ngModel" required>
       <option [ngValue]="undefined">[ Selecionar Sector ]</option>
-      <option *ngFor="let sector of sectorlista" [ngValue]="sector.idSector">{{sector.nombreSector}}</option>
+      <option *ngFor="let sector of sectorlista" [ngValue]="sector">{{sector.nombreSector}}</option>
     </select>
     <div class="invalid-relleno" *ngIf="sector.invalid && (sector.dirty || sector.touched)">
       <div  *ngIf="sector.errors.required">
@@ -24,7 +24,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="nombre" [(ngModel)]="trabajador.nombre" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com" [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched)?'invalid-contorno':'form-controll'" #nombre="ngModel" required >
+        <input name="nombre" [(ngModel)]="trabajador.nombreTrabajador" type="text" class="form-control" id="floatingInputNombre" placeholder="name@example.com" [ngClass]="nombre.invalid && (nombre.dirty || nombre.touched)?'invalid-contorno':'form-controll'" #nombre="ngModel" required >
         <label for="floatingInputNombre">Nombre(s)</label>
 
         <div class="invalid-relleno" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
@@ -37,7 +37,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="apPaterno" [(ngModel)]="trabajador.apPaterno" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com" [ngClass]="ap.invalid && (ap.dirty || ap.touched)?'invalid-contorno':'form-controll'" #ap="ngModel" required>
+        <input name="apPaterno" [(ngModel)]="trabajador.apellidopaTrabajador" type="text" class="form-control" id="floatingInputAp" placeholder="name@example.com" [ngClass]="ap.invalid && (ap.dirty || ap.touched)?'invalid-contorno':'form-controll'" #ap="ngModel" required>
         <label for="floatingInputAp">Apellido Paterno</label>
 
         <div class="invalid-relleno" *ngIf="ap.invalid && (ap.dirty || ap.touched)">
@@ -50,7 +50,7 @@
     </div>
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="apMaterno" [(ngModel)]="trabajador.apMaterno"  type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com" [ngClass]="apm.invalid && (apm.dirty || apm.touched)?'invalid-contorno':'form-controll'" #apm="ngModel" required>
+        <input name="apMaterno" [(ngModel)]="trabajador.apellidomaTrabajador"  type="text" class="form-control" id="floatingInputAm" placeholder="name@example.com" [ngClass]="apm.invalid && (apm.dirty || apm.touched)?'invalid-contorno':'form-controll'" #apm="ngModel" required>
         <label for="floatingInputAm">Apellido Materno</label>
         <div class="invalid-relleno" *ngIf="apm.invalid && (apm.dirty || apm.touched)">
           <div  *ngIf="apm.errors.required">
@@ -60,10 +60,10 @@
       </div>
     </div>
     <div class="col-md-2">
-      <select name="genero" [(ngModel)]="trabajador.genero" class="form-select mt-4" aria-label="Default select example" [ngClass]="genero.invalid && (genero.dirty || genero.touched)?'invalid-contorno':'form-controll'" #genero="ngModel" required >
+      <select name="genero" [(ngModel)]="trabajador.generoTrabajador" class="form-select mt-4" aria-label="Default select example" [ngClass]="genero.invalid && (genero.dirty || genero.touched)?'invalid-contorno':'form-controll'" #genero="ngModel" required >
         <option [ngValue]="undefined">Selecionar Genero</option>
-        <option ngValue="M">M</option>
-        <option ngValue="F">F</option>
+        <option [ngValue]=0>M</option>
+        <option [ngValue]=1>F</option>
       </select>
 
       <div class="invalid-relleno" *ngIf="genero.invalid && (genero.dirty || genero.touched)">
@@ -77,7 +77,7 @@
   <div class = "row">
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input  name="fechaNacimiento" [(ngModel)]="trabajador.fechaNacimiento" type="date" class="form-control" id="floatingInputFechana" placeholder="name@example.com" [ngClass]="fechaNav.invalid && (fechaNav.dirty || fechaNav.touched)?'invalid-contorno':'form-controll'" #fechaNav="ngModel" required>
+        <input  name="fechaNacimiento" [(ngModel)]="trabajador.fechanaTrabajador" type="date" class="form-control" id="floatingInputFechana" placeholder="name@example.com" [ngClass]="fechaNav.invalid && (fechaNav.dirty || fechaNav.touched)?'invalid-contorno':'form-controll'" #fechaNav="ngModel" required>
         <label for="floatingInputFechana">Fecha Nacimiento</label>
 
         <div class="invalid-relleno" *ngIf="fechaNav.invalid && (fechaNav.dirty || fechaNav.touched)">
@@ -90,7 +90,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="tipoSanguineo" [(ngModel)]="trabajador.tipoSanguineo" type="text" class="form-control" id="floatingInputSanguineo" placeholder="name@example.com" [ngClass]="tiposanguineo.invalid && (tiposanguineo.dirty || tiposanguineo.touched)?'invalid-contorno':'form-controll'" #tiposanguineo="ngModel" required>
+        <input name="tipoSanguineo" [(ngModel)]="trabajador.tipoSanguineoTrabajador" type="text" class="form-control" id="floatingInputSanguineo" placeholder="name@example.com" [ngClass]="tiposanguineo.invalid && (tiposanguineo.dirty || tiposanguineo.touched)?'invalid-contorno':'form-controll'" #tiposanguineo="ngModel" required>
         <label for="floatingInputSanguineo">Tipo Sanguineo</label>
 
         <div class="invalid-relleno" *ngIf="tiposanguineo.invalid && (tiposanguineo.dirty || tiposanguineo.touched)">
@@ -102,7 +102,7 @@
     </div>
 
     <div class="col-md-3">
-      <select name="estadoCivil" [(ngModel)]="trabajador.estadoCivil" class="form-select mt-4 anchura" aria-label="Default select example" [ngClass]="estadocivil.invalid && (estadocivil.dirty || estadocivil.touched)?'invalid-contorno':'form-controll'" #estadocivil="ngModel" required>
+      <select name="estadoCivil" [(ngModel)]="trabajador.estadoCivilTrabajador" class="form-select mt-4 anchura" aria-label="Default select example" [ngClass]="estadocivil.invalid && (estadocivil.dirty || estadocivil.touched)?'invalid-contorno':'form-controll'" #estadocivil="ngModel" required>
         <option [ngValue]="undefined"> Estado Civil </option>
 
         <option [ngValue]=1>Soltera</option>
@@ -120,7 +120,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input  name="claveElector" [(ngModel)]="trabajador.claveElector" type="text" class="form-control" id="floatingInputElector" placeholder="name@example.com" [ngClass]="claveElector.invalid && (claveElector.dirty || claveElector.touched)?'invalid-contorno':'form-controll'" #claveElector="ngModel" required>
+        <input  name="claveElector" [(ngModel)]="trabajador.claveElectorTrabajador" type="text" class="form-control" id="floatingInputElector" placeholder="name@example.com" [ngClass]="claveElector.invalid && (claveElector.dirty || claveElector.touched)?'invalid-contorno':'form-controll'" #claveElector="ngModel" required>
         <label for="floatingInputElector">Clave Elector</label>
 
         <div class="invalid-relleno" *ngIf="claveElector.invalid && (claveElector.dirty || claveElector.touched)">
@@ -135,7 +135,7 @@
   <div class = "row">
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="seccion" [(ngModel)]="trabajador.seccion" type="text" class="form-control" id="floatingInputSeccion" placeholder="name@example.com" [ngClass]="seccion.invalid && (seccion.dirty || seccion.touched)?'invalid-contorno':'form-controll'" #seccion="ngModel" required>
+        <input name="seccion" [(ngModel)]="trabajador.seccionTrabajador" type="text" class="form-control" id="floatingInputSeccion" placeholder="name@example.com" [ngClass]="seccion.invalid && (seccion.dirty || seccion.touched)?'invalid-contorno':'form-controll'" #seccion="ngModel" required>
         <label for="floatingInputSeccion">Seccion</label>
 
         <div class="invalid-relleno" *ngIf="seccion.invalid && (seccion.dirty || seccion.touched)">
@@ -148,7 +148,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="curp" [(ngModel)]="trabajador.curp" type="text" class="form-control" id="floatingInputCurp" [ngClass]="curpv.invalid && (curpv.dirty || curpv.touched)?'invalid-contorno':'form-controll'" #curpv="ngModel" required minlength="18" maxlength="18" placeholder="name@example.com">
+        <input name="curp" [(ngModel)]="trabajador.id" type="text" class="form-control" id="floatingInputCurp" [ngClass]="curpv.invalid && (curpv.dirty || curpv.touched)?'invalid-contorno':'form-controll'" #curpv="ngModel" required minlength="18" maxlength="18" placeholder="name@example.com">
         <label for="floatingInputCurp">CURP</label>
         <div class="invalid-relleno" *ngIf="curpv.invalid && (curpv.dirty || curpv.touched)">
           <div  *ngIf="curpv.errors.required">
@@ -165,9 +165,9 @@
 
   <div class = "row">
     <div class="col-md-3">
-      <select name="cargo" [(ngModel)]="trabajador.cargo" class="form-select mt-4" aria-label="Default select example" [ngClass]="cargova.invalid && (cargova.dirty || cargova.touched)?'invalid-contorno':'form-controll'" #cargova="ngModel" required>
+      <select name="cargo" [(ngModel)]="trabajador.cargoTrabajador" class="form-select mt-4" aria-label="Default select example" [ngClass]="cargova.invalid && (cargova.dirty || cargova.touched)?'invalid-contorno':'form-controll'" #cargova="ngModel" required>
         <option [ngValue]="undefined">[ Selecionar Cargo ]</option>
-        <option *ngFor="let cargo of cargolista" [ngValue]="cargo.idcargo">{{cargo.nombreCargo}}</option>
+        <option *ngFor="let cargo of cargolista" [ngValue]="cargo">{{cargo.nombreCargo}}</option>
       </select>
 
       <div class="invalid-relleno" *ngIf="cargova.invalid && (cargova.dirty || cargova.touched)">
@@ -178,9 +178,9 @@
     </div>
 
     <div class="col-md-3">
-      <select name="region" [(ngModel)]="trabajador.region" class="form-select mt-4" aria-label="Default select example" [ngClass]="regionva.invalid && (regionva.dirty || regionva.touched)?'invalid-contorno':'form-controll'" #regionva="ngModel" required>
+      <select name="region" [(ngModel)]="trabajador.regionTrabajador" class="form-select mt-4" aria-label="Default select example" [ngClass]="regionva.invalid && (regionva.dirty || regionva.touched)?'invalid-contorno':'form-controll'" #regionva="ngModel" required>
         <option [ngValue]="undefined">[ Sellecionar Region ]</option>
-        <option *ngFor="let region of regionlista" [ngValue]="region.claveRegion">{{region.nombreRegion}}</option>
+        <option *ngFor="let region of regionlista" [ngValue]="region">{{region.nombreRegion}}</option>
       </select>
 
       <div class="invalid-relleno" *ngIf="regionva.invalid && (regionva.dirty || regionva.touched)">
@@ -191,9 +191,9 @@
     </div>
 
     <div class="col-md-3" >
-      <select name="cdc" [(ngModel)]="trabajador.cdc" class="form-select mt-4" aria-label="Default select example" [ngClass]="cdcVa.invalid && (cdcVa.dirty || cdcVa.touched)?'invalid-contorno':'form-controll'" #cdcVa="ngModel" required>
+      <select name="cdc" [(ngModel)]="trabajador.cdcTrabajador" class="form-select mt-4" aria-label="Default select example" [ngClass]="cdcVa.invalid && (cdcVa.dirty || cdcVa.touched)?'invalid-contorno':'form-controll'" #cdcVa="ngModel" required>
         <option [ngValue]="undefined">[ Seleccionar CDC ]</option>
-        <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs.idCdcs">{{cdcs.nombreCdc}}</option>
+        <option *ngFor="let cdcs of cdcslista" [ngValue]="cdcs">{{cdcs.nombreCdc}}</option>
       </select>
 
       <div class="invalid-relleno" *ngIf="cdcVa.invalid && (cdcVa.dirty || cdcVa.touched)">
@@ -217,7 +217,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="calle" [(ngModel)]="trabajador.calle" type="text" class="form-control" id="floatingInputCalle" placeholder="name@example.com" [ngClass]="calle.invalid && (calle.dirty || calle.touched)?'invalid-contorno':'form-controll'" #calle="ngModel" required>
+        <input name="calle" [(ngModel)]="trabajador.calleTrabajador" type="text" class="form-control" id="floatingInputCalle" placeholder="name@example.com" [ngClass]="calle.invalid && (calle.dirty || calle.touched)?'invalid-contorno':'form-controll'" #calle="ngModel" required>
         <label for="floatingInputCalle">Calle</label>
 
         <div class="invalid-relleno" *ngIf="calle.invalid && (calle.dirty || calle.touched)">
@@ -230,7 +230,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="numero" [(ngModel)]="trabajador.numero" type="text" class="form-control" id="floatingInputNumero" placeholder="name@example.com" [ngClass]="numero.invalid && (numero.dirty || numero.touched)?'invalid-contorno':'form-controll'" #numero="ngModel" required>
+        <input name="numero" [(ngModel)]="trabajador.numeroCalle" type="text" class="form-control" id="floatingInputNumero" placeholder="name@example.com" [ngClass]="numero.invalid && (numero.dirty || numero.touched)?'invalid-contorno':'form-controll'" #numero="ngModel" required>
         <label for="floatingInputNumero">Numero</label>
 
         <div class="invalid-relleno" *ngIf="numero.invalid && (numero.dirty || numero.touched)">
@@ -243,7 +243,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="colonia" [(ngModel)]="trabajador.colonia" type="text" class="form-control" id="floatingInputCol" placeholder="name@example.com" [ngClass]="colonia.invalid && (colonia.dirty || colonia.touched)?'invalid-contorno':'form-controll'" #colonia="ngModel" required>
+        <input name="colonia" [(ngModel)]="trabajador.coloniaTrabajador" type="text" class="form-control" id="floatingInputCol" placeholder="name@example.com" [ngClass]="colonia.invalid && (colonia.dirty || colonia.touched)?'invalid-contorno':'form-controll'" #colonia="ngModel" required>
         <label for="floatingInputCol">Colnia</label>
 
         <div class="invalid-relleno" *ngIf="colonia.invalid && (colonia.dirty || colonia.touched)">
@@ -256,7 +256,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="cp" [(ngModel)]="trabajador.cp" type="text" class="form-control" id="floatingInputCP" placeholder="name@example.com" [ngClass]="cp.invalid && (cp.dirty || cp.touched)?'invalid-contorno':'form-controll'" #cp="ngModel" required>
+        <input name="cp" [(ngModel)]="trabajador.codigoPostalTrabajador" type="text" class="form-control" id="floatingInputCP" placeholder="name@example.com" [ngClass]="cp.invalid && (cp.dirty || cp.touched)?'invalid-contorno':'form-controll'" #cp="ngModel" required>
         <label for="floatingInputCP">Codigo Postal</label>
 
         <div class="invalid-relleno" *ngIf="cp.invalid && (cp.dirty || cp.touched)">
@@ -272,7 +272,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input name="localidad" [(ngModel)]="trabajador.localidad" type="text" class="form-control" id="floatingInputLocalidad" placeholder="name@example.com" [ngClass]="localidad.invalid && (localidad.dirty || localidad.touched)?'invalid-contorno':'form-controll'" #localidad="ngModel" required>
+        <input name="localidad" [(ngModel)]="trabajador.localidadTrabajador" type="text" class="form-control" id="floatingInputLocalidad" placeholder="name@example.com" [ngClass]="localidad.invalid && (localidad.dirty || localidad.touched)?'invalid-contorno':'form-controll'" #localidad="ngModel" required>
         <label for="floatingInputLocalidad">Localidad</label>
 
         <div class="invalid-relleno" *ngIf="localidad.invalid && (localidad.dirty || localidad.touched)">
@@ -296,7 +296,7 @@
                  <mat-icon matSuffix>search</mat-icon>
               <mat-autocomplete #auto1="matAutocomplete" [displayWith]="mostrarDatosMunicipio" (optionSelected)="seleccionarMunicipio($event)">
               <mat-option  *ngFor="let municipio of municipiosobser | async" [value]="municipio">
-                {{municipio.clavemunicipio}} {{municipio.nombreMunicipio}}
+                {{municipio.id}} {{municipio.nombreMunicipio}}
               </mat-option>
           </mat-autocomplete>
         </mat-form-field>
@@ -305,7 +305,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input  name="celular" [(ngModel)]="trabajador.celular" type="text" class="form-control" id="floatingInputCelular" placeholder="name@example.com" [ngClass]="numcelular.invalid && (numcelular.dirty || numcelular.touched)?'invalid-contorno':'form-controll'" #numcelular="ngModel" required>
+        <input  name="celular" [(ngModel)]="trabajador.telcelularTrabajador" type="text" class="form-control" id="floatingInputCelular" placeholder="name@example.com" [ngClass]="numcelular.invalid && (numcelular.dirty || numcelular.touched)?'invalid-contorno':'form-controll'" #numcelular="ngModel" required>
         <label for="floatingInputCelular">Celular</label>
 
         <div class="invalid-relleno" *ngIf="numcelular.invalid && (numcelular.dirty || numcelular.touched)">
@@ -318,7 +318,7 @@
 
     <div class="col-md-3">
       <div class="form-floating mt-4">
-        <input  name="telCasa" [(ngModel)]="trabajador.telCasa" type="text" class="form-control" id="floatingInputTelCasa" placeholder="name@example.com" [ngClass]="telcasa.invalid && (telcasa.dirty || telcasa.touched)?'invalid-contorno':'form-controll'" #telcasa="ngModel" required>
+        <input  name="telCasa" [(ngModel)]="trabajador.telcasaTrabajador" type="text" class="form-control" id="floatingInputTelCasa" placeholder="name@example.com" [ngClass]="telcasa.invalid && (telcasa.dirty || telcasa.touched)?'invalid-contorno':'form-controll'" #telcasa="ngModel" required>
         <label for="floatingInputTelCasa">Telefono Casa</label>
 
         <div class="invalid-relleno" *ngIf="telcasa.invalid && (telcasa.dirty || telcasa.touched)">
@@ -329,76 +329,84 @@
       </div>
     </div>
 
-  <div class = "row">
+    <div class = "row">
 
-    <div class="col-md-3">
-      <div class="form-floating mt-4">
-        <input name="correoElectronico" [(ngModel)]="trabajador.correoElectronico" type="email" class="form-control" id="floatingInputCorreElectro"
-        placeholder="name@example.com" [ngClass]="correo.invalid && (correo.dirty || correo.touched)?'invalid-contorno':'form-controll'" #correo="ngModel" (keyup)="validarCorreo()">
-        <label for="floatingInputCorreElectro">Correo Electronico</label>
+      <div class="col-md-3">
+        <div class="form-floating mt-4">
+          <input name="correoElectronico" [(ngModel)]="trabajador.correoElectronicoTrabajador" type="email" class="form-control" id="floatingInputCorreElectro"
+          placeholder="name@example.com" [ngClass]="correo.invalid && (correo.dirty || correo.touched)?'invalid-contorno':'form-controll'" #correo="ngModel" (keyup)="validarCorreo()">
+          <label for="floatingInputCorreElectro">Correo Electronico</label>
 
-        <div class="invalid-relleno" *ngIf="!validarCorreo() && (correo.dirty || correo.touched)">
+          <div class="invalid-relleno" *ngIf="!validarCorreo() && (correo.dirty || correo.touched)">
 
-          <div  *ngIf="!validarCorreo()">
-            *El correo es incorrecto
+            <div  *ngIf="!validarCorreo()">
+              *El correo es incorrecto
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="col-md-3">
-      <div class="form-floating mt-4">
-        <input  name="facebook" [(ngModel)]="trabajador.facebook" type="text" class="form-control" id="floatingInputFacebook" placeholder="name@example.com">
-        <label for="floatingInputFacebook">Facebook</label>
+      <div class="col-md-3">
+        <div class="form-floating mt-4">
+          <input  name="facebook" [(ngModel)]="trabajador.facebookTrabajador" type="text" class="form-control" id="floatingInputFacebook" placeholder="name@example.com">
+          <label for="floatingInputFacebook">Facebook</label>
+        </div>
       </div>
-    </div>
 
-    <div class="col-md-3">
-      <div class="form-floating mt-4">
-        <input name="twitter" [(ngModel)]="trabajador.twitter" type="text" class="form-control" id="floatingInputTwitter" placeholder="name@example.com">
-        <label for="floatingInputTwitter">Twitter</label>
+      <div class="col-md-3">
+        <div class="form-floating mt-4">
+          <input name="twitter" [(ngModel)]="trabajador.twitterTrabajador" type="text" class="form-control" id="floatingInputTwitter" placeholder="name@example.com">
+          <label for="floatingInputTwitter">Twitter</label>
+        </div>
       </div>
-    </div>
 
-    <div class="col-md-3">
-      <div class="form-floating mt-4">
-        <input name="instagram" [(ngModel)]="trabajador.instagram" type="text" class="form-control" id="floatingInputInstagram" placeholder="name@example.com">
-        <label for="floatingInputInstagram">Instagram</label>
+      <div class="col-md-3">
+        <div class="form-floating mt-4">
+          <input name="instagram" [(ngModel)]="trabajador.instagramTrabajador" type="text" class="form-control" id="floatingInputInstagram" placeholder="name@example.com">
+          <label for="floatingInputInstagram">Instagram</label>
+        </div>
       </div>
-    </div>
 
-  </div>
-  <div class="row">
-    <h3 class="mt-4">SELECIONA LOS DOCUMENTOS ENTREGADOS</h3>
-    <div class="col-md-auto  form-check">
-      <input name="actanacimiento" [(ngModel)]="trabajador.hasactanacimiento" class="inputejem" type="checkbox" value="" id="checkacta">
-      <label class="labelejem" for="checkacta">
-        ACTA DE NACIMIENTO
-      </label>
     </div>
+    <div class="row">
+      <h3 class="mt-4">SELECIONA LOS DOCUMENTOS ENTREGADOS</h3>
+      <div class="col-md-auto  form-check">
+        <input name="actanacimiento" [(ngModel)]="trabajador.hasactanacimiento" class="inputejem" type="checkbox" value="" id="checkacta">
+        <label class="labelejem" for="checkacta">
+          ACTA DE NACIMIENTO
+        </label>
+      </div>
 
-    <div class="col-md-auto form-check">
-      <input name="comprobantedomicilio" [(ngModel)]="trabajador.hascomprobante" class="inputejem" type="checkbox" value="" id="checkdomicilio">
-      <label class="labelejem" for="checkdomicilio">
-        COMPROBANTE DE DOMICILIO
-      </label>
+      <div class="col-md-auto form-check">
+        <input name="comprobantedomicilio" [(ngModel)]="trabajador.hascomprobante" class="inputejem" type="checkbox" value="" id="checkdomicilio">
+        <label class="labelejem" for="checkdomicilio">
+          COMPROBANTE DE DOMICILIO
+        </label>
+      </div>
+
+      <div class="col-md-auto  form-check">
+        <input name="curpdocumento" [(ngModel)]="trabajador.hascurp" class="inputejem" type="checkbox" value="" id="checkcurp">
+        <label class="labelejem" for="checkcurp">
+          CURP
+        </label>
+      </div>
+
+      <div class="col-md-auto  form-check">
+        <input name="inedocumento" [(ngModel)]="trabajador.hasine" class="inputejem" type="checkbox" value="" id="checkineife">
+        <label class="labelejem" for="checkineife">
+          INE/IFE
+        </label>
+      </div>
+
+      <div class="col-md-auto">
+
+          <label for="archivo">Seleccionar imagen:</label>
+          <input type="file" name="archivo" id="archivo" (change)="seleccionarFoto($event)">
+          <!--<input type="submit" value="Subir imagen">-->
+
+      </div>
+
     </div>
-
-    <div class="col-md-auto  form-check">
-      <input name="curpdocumento" [(ngModel)]="trabajador.hascurp" class="inputejem" type="checkbox" value="" id="checkcurp">
-      <label class="labelejem" for="checkcurp">
-        CURP
-      </label>
-    </div>
-
-    <div class="col-md-auto  form-check">
-      <input name="inedocumento" [(ngModel)]="trabajador.hasine" class="inputejem" type="checkbox" value="" id="checkineife">
-      <label class="labelejem" for="checkineife">
-        INE/IFE
-      </label>
-    </div>
-
-  </div>
   </div>
 
   <div class="row mt-3">
@@ -409,11 +417,10 @@
       <button (click)= "actualizarTrabajador()" type="button" class="btn btn-success" >ACTUALIZAR</button>
     </ng-template>
     <div class="col-auto">
-      <button [routerLink]="['/clua',trabajador.curp]" type="button" class="btn btn-success">GENERAR CLUA</button>
+      <button [routerLink]="['/clua',trabajador.id]" type="button" class="btn btn-success">GENERAR CLUA</button>
     </div>
 
   </div>
-
   </div>
 
 </div>
